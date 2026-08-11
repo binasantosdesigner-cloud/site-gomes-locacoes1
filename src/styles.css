@@ -1,6 +1,13 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss";
 @source "../src";
-@import "tw-animate-css";
+
+@utility whatsapp-button {
+  @apply bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold transition-all duration-300;
+}
+
+@utility container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
 
 @custom-variant dark (&:is(.dark *));
 
