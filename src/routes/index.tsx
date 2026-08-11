@@ -1,24 +1,157 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+const PRODUCTS = [
+  { id: 1, name: "Compactador de Solo", image: "https://images.unsplash.com/photo-1541902313320-184930607775?auto=format&fit=crop&q=80&w=800" },
+  { id: 2, name: "Betoneira", image: "https://images.unsplash.com/photo-1596707474411-884852924303?auto=format&fit=crop&q=80&w=800" },
+  { id: 3, name: "Andaimes", image: "https://images.unsplash.com/photo-1503387762-592deb58e4e2?auto=format&fit=crop&q=80&w=800" },
+  { id: 4, name: "Compressor", image: "https://images.unsplash.com/photo-1542601906990-b4d3fb7780b9?auto=format&fit=crop&q=80&w=800" },
+  { id: 5, name: "Roçadeira", image: "https://images.unsplash.com/photo-1596464716127-f2a89787de8a?auto=format&fit=crop&q=80&w=800" },
+  { id: 6, name: "Martelete Demolidor", image: "https://images.unsplash.com/photo-1581094794329-c8112a4722b5?auto=format&fit=crop&q=80&w=800" },
+  { id: 7, name: "Perfurador de Solo", image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800" },
+];
+
 function Index() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-sm border-b">
+        <nav className="container-custom flex items-center justify-between h-20">
+          <div className="flex items-center gap-2 font-bold text-2xl text-primary">
+            <HardHat size={32} />
+            <span>Gomes Locações</span>
+          </div>
+          
+          <div className="hidden md:flex gap-8 font-medium">
+            {["Início", "Equipamentos", "Diferenciais", "Contato"].map((link) => (
+              <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-primary transition-colors">{link}</a>
+            ))}
+          </div>
+
+          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X /> : <Menu />}
+          </button>
+        </nav>
+      </header>
+
+      {/* Hero */}
+      <section id="início" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=2000" 
+          className="absolute inset-0 w-full h-full object-cover brightness-50"
+          alt="Construção Civil"
+        />
+        <div className="container-custom relative z-10 text-center text-white space-y-6">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-extrabold leading-tight"
+          >
+            Locação de Equipamentos para Construção Civil em Rondonópolis
+          </motion.h1>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl font-light"
+          >
+            Sem burocracia, entrega rápida e frota revisada.
+          </motion.h2>
+          <motion.a 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, repeat: Infinity, repeatType: "reverse", duration: 2 }}
+            href="https://wa.me/5566999101069" 
+            className="inline-block whatsapp-button px-8 py-4 rounded-xl text-lg shadow-lg"
+          >
+            Fazer Orçamento Agora
+          </motion.a>
+        </div>
+      </section>
+
+      {/* Equipamentos */}
+      <section id="equipamentos" className="py-20 bg-gray-50">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold text-center mb-12">Nossos Equipamentos (Pronta Entrega)</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PRODUCTS.map((prod) => (
+              <motion.div 
+                key={prod.id}
+                whileHover={{ y: -10 }}
+                className="bg-card rounded-xl shadow-md overflow-hidden flex flex-col"
+              >
+                <img src={prod.image} alt={prod.name} className="h-48 w-full object-cover" />
+                <div className="p-6 flex-grow flex flex-col justify-between">
+                  <h3 className="text-xl font-bold mb-4">Aluguel de {prod.name}</h3>
+                  <a 
+                    href={`https://wa.me/5566999101069?text=Olá, gostaria de orçar o aluguel de ${prod.name}`}
+                    className="whatsapp-button w-full py-3 rounded-lg flex items-center justify-center gap-2"
+                  >
+                    Orçar este equipamento
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Diferenciais */}
+      <section id="diferenciais" className="py-20">
+        <div className="container-custom grid md:grid-cols-3 gap-12 text-center">
+          {[
+            { Icon: Clock, title: "Entrega Rápida", desc: "Na sua obra no prazo combinado." },
+            { Icon: Wrench, title: "Equipamentos Revisados", desc: "Ferramentas prontas para o trabalho pesado." },
+            { Icon: Check, title: "Locação sem Burocracia", desc: "Atendemos Pedreiros, Empreiteiros e Construtoras." }
+          ].map((item, idx) => (
+            <div key={idx} className="space-y-4">
+              <div className="mx-auto w-16 h-16 bg-primary/20 text-primary rounded-full flex items-center justify-center">
+                <item.Icon size={32} />
+              </div>
+              <h3 className="text-xl font-bold">{item.title}</h3>
+              <p className="text-muted-foreground">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-foreground text-background py-16">
+        <div className="container-custom grid md:grid-cols-3 gap-12">
+          <div className="space-y-4">
+            <h4 className="font-bold text-xl flex items-center gap-2"><HardHat /> Gomes Locações</h4>
+            <p className="text-muted-foreground">O maquinário certo para a sua obra não parar.</p>
+          </div>
+          <div className="space-y-4">
+            <h4 className="font-bold text-lg">Contato</h4>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <MapPin size={20} />
+              Rua Dom Pedro II, 1540 - Jd. Mato Grosso, Rondonópolis - MT
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Phone size={20} />
+              (66) 99910-1069
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h4 className="font-bold text-lg">Links</h4>
+            <a href="#" className="block hover:underline">Política de Privacidade</a>
+            <a href="#" className="block hover:underline">Termos de Locação</a>
+          </div>
+        </div>
+        <div className="container-custom mt-12 pt-8 border-t border-white/10 text-center text-muted-foreground">
+          © 2026 Gomes Locações. Todos os direitos reservados.
+        </div>
+      </footer>
     </div>
   );
 }
