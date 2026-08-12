@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X, MessageCircle } from "lucide-react";
+import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X, MessageCircle, Headphones } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { EquipmentSection } from "@/components/EquipmentSection";
@@ -155,6 +155,48 @@ function Index() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
+        </div>
+      </section>
+
+      {/* CTA Banner Section */}
+      <section className="bg-slate-900 border-t-4 border-[#FFCC00]">
+        <div className="container-custom py-12 px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Left: Specialist Avatar */}
+            <div className="flex-shrink-0">
+              <div className="w-24 h-24 md:w-28 md:h-28 bg-[#FFCC00] rounded-full flex items-center justify-center shadow-xl relative">
+                <Headphones size={48} className="text-slate-900" />
+                <div className="absolute -bottom-1 -right-1 bg-[#25D366] w-8 h-8 rounded-full border-4 border-slate-900 flex items-center justify-center">
+                  <div className="w-2 h-2 bg-white rounded-full animate-ping" />
+                </div>
+              </div>
+            </div>
+
+            {/* Center: Commercial Text */}
+            <div className="flex-1 text-center md:text-left space-y-3">
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
+                Fale com nosso Especialista
+              </h3>
+              <p className="text-slate-200 text-lg max-w-2xl leading-relaxed">
+                Não sabe qual equipamento escolher para o seu tipo de obra? Nossa equipe te ajuda a identificar a ferramenta ideal e passa o orçamento na hora.
+              </p>
+            </div>
+
+            {/* Right: CTA Button */}
+            <div className="flex-shrink-0 w-full md:w-auto">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://wa.me/5566999101069?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20para%20escolher%20o%20equipamento%20ideal%20para%20minha%20obra."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 bg-[#FFCC00] text-slate-900 px-8 py-5 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
+              >
+                <MessageCircle className="fill-current" />
+                Iniciar Conversa no WhatsApp
+              </motion.a>
+            </div>
+          </div>
         </div>
       </section>
 
