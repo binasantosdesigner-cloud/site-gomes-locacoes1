@@ -2,11 +2,6 @@ import { MessageCircle, CalendarDays, CalendarRange, CalendarClock, ShieldCheck 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-import marteleteAsset from "@/assets/martelete.png.asset.json";
-import andaimeAsset from "@/assets/andaime.png.asset.json";
-import compactadorAsset from "@/assets/compactador.png.asset.json";
-import rocadeiraAsset from "@/assets/rocadeira.png.asset.json";
-
 const WHATSAPP = "https://wa.me/5566999101069";
 
 export interface Equipment {
@@ -18,21 +13,21 @@ const buildLink = (name: string) =>
   `${WHATSAPP}?text=${encodeURIComponent(`Olá, gostaria de orçar o aluguel de ${name}.`)}`;
 
 const BLOCK_1: Equipment[] = [
-  { name: "Martelete Rompedor", image: marteleteAsset.url },
-  { name: "Betoneira", image: "https://images.unsplash.com/photo-1596707474411-884852924303?auto=format&fit=crop&q=80&w=800" },
-  { name: "Andaimes", image: andaimeAsset.url },
+  { name: "Martelete Rompedor", image: "/imagens/Martelete.jpg" },
+  { name: "Betoneira", image: "/imagens/Betoneira.jpg" },
+  { name: "Andaimes", image: "/imagens/Andaime.jpg" },
 ];
 
 const BLOCK_2: Equipment[] = [
-  { name: "Compactador de Solo", image: compactadorAsset.url },
-  { name: "Placa Vibratória", image: "https://images.unsplash.com/photo-1581094794329-c8112a4722b5?auto=format&fit=crop&q=80&w=800" },
-  { name: "Gerador de Energia", image: "https://images.unsplash.com/photo-1542601906990-b4d3fb7780b9?auto=format&fit=crop&q=80&w=800" },
+  { name: "Compactador de Solo", image: "/imagens/Compactador de solo.jpg" },
+  { name: "Placa Vibratória", image: "/imagens/Placa vibratória.jpg" },
+  { name: "Gerador", image: "/imagens/Gerador.jpg" },
 ];
 
 const BLOCK_3: Equipment[] = [
-  { name: "Roçadeira", image: rocadeiraAsset.url },
-  { name: "Lixadeira Telescópica", image: "https://images.unsplash.com/photo-1503387762-592deb58e4e2?auto=format&fit=crop&q=80&w=800" },
-  { name: "Compressor de Ar", image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800" },
+  { name: "Roçadeira", image: "/imagens/Roçadeira.jpg" },
+  { name: "Lixadeira Telescópica", image: "/imagens/Lixadeira girafa para parede.jpg" },
+  { name: "Guincho de Coluna", image: "/imagens/Guincho de coluna.jpg" },
 ];
 
 function EquipmentCard({ item }: { item: Equipment }) {
@@ -43,12 +38,17 @@ function EquipmentCard({ item }: { item: Equipment }) {
       viewport={{ once: true, amount: 0.2 }}
       className="flex flex-col overflow-hidden rounded-xl bg-card shadow-md"
     >
-      <div className="flex h-48 items-center justify-center bg-secondary">
+      <div className="flex h-48 items-center justify-center bg-secondary overflow-hidden">
         <img
           src={item.image}
-          alt={`Aluguel de ${item.name} em Rondonópolis`}
+          alt={`Aluguel de ${item.name} em Rondonópolis - Gomes Locações`}
           loading="lazy"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&q=80&w=800";
+            target.onerror = null;
+          }}
         />
       </div>
       <div className="flex flex-1 flex-col justify-between gap-4 p-5">
