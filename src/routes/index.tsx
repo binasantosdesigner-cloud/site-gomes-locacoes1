@@ -1,8 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X } from "lucide-react";
+import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { EquipmentSection } from "@/components/EquipmentSection";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -91,6 +97,67 @@ function Index() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-20 bg-slate-50">
+        <div className="container-custom max-w-4xl">
+          <header className="space-y-4 text-center mb-12">
+            <h2 className="text-3xl font-extrabold sm:text-4xl text-slate-900">
+              Dúvidas Frequentes sobre Locação de Equipamentos em Rondonópolis
+            </h2>
+            <p className="text-lg text-slate-600">
+              Tudo o que você precisa saber para alugar máquinas e ferramentas para sua obra sem burocracia.
+            </p>
+          </header>
+
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            <AccordionItem value="item-1" className="bg-white border rounded-xl px-4">
+              <AccordionTrigger className="text-base font-bold text-slate-800 hover:no-underline py-6">
+                Como funciona o aluguel de equipamentos para construção na Gomes Locações?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
+                O processo é simples e sem burocracia! Você escolhe o equipamento necessário (betoneira, martelete, compactador, andaime, etc.), entra em contato conosco pelo WhatsApp e enviamos o orçamento e as condições. Após a aprovação do cadastro rápido, combinamos a entrega direta no seu canteiro de obras em Rondonópolis e região.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="bg-white border rounded-xl px-4">
+              <AccordionTrigger className="text-base font-bold text-slate-800 hover:no-underline py-6">
+                Vocês entregam os equipamentos direto na obra em Rondonópolis?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
+                Sim! Possuímos logística própria para entrega e retirada de máquinas e ferramentas em todos os bairros de Rondonópolis/MT e regiões vizinhas, garantindo pontualidade para que sua obra não fique parada.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="bg-white border rounded-xl px-4">
+              <AccordionTrigger className="text-base font-bold text-slate-800 hover:no-underline py-6">
+                Quais são os períodos de locação disponíveis (diária, semanal, mensal)?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
+                Oferecemos total flexibilidade para o seu planejamento financeiro. Você pode alugar equipamentos por Diária, Semanal, Quinzenal ou Mensal. Quanto maior o período de locação, mais vantajosas são as condições.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="bg-white border rounded-xl px-4">
+              <AccordionTrigger className="text-base font-bold text-slate-800 hover:no-underline py-6">
+                O que acontece se o equipamento apresentar algum defeito durante o uso na obra?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
+                Todos os nossos equipamentos passam por revisão técnica preventiva rigorosa antes de cada entrega. Caso ocorra qualquer imprevisto técnico durante a utilização, nossa equipe faz o atendimento e a substituição ágil do maquinário no local sem custos adicionais.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="bg-white border rounded-xl px-4">
+              <AccordionTrigger className="text-base font-bold text-slate-800 hover:no-underline py-6">
+                Pessoa Física (CPF) pode alugar ferramentas ou somente Empresas (CNPJ)?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
+                Atendemos tanto Pessoa Física (pedreiros, mestres de obras, proprietários) quanto Pessoa Jurídica (construtoras e empreiteiras). Basta apresentar documento de identificação e comprovante de endereço para análise cadastral rápida.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-foreground text-background py-16">
         <div className="container-custom grid md:grid-cols-3 gap-12">
@@ -134,6 +201,31 @@ function Index() {
           </div>
         </div>
       </footer>
+      {/* Floating WhatsApp Button */}
+      <motion.a
+        href="https://wa.me/5566999101069?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20loca%C3%A7%C3%A3o%20de%20equipamentos."
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        whileHover={{ scale: 1.1 }}
+        className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-transform"
+        aria-label="Falar no WhatsApp"
+      >
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [1, 0.8, 1],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <MessageCircle size={32} fill="currentColor" />
+        </motion.div>
+      </motion.a>
     </div>
   );
 }
