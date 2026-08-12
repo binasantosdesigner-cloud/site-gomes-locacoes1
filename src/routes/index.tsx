@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X, ChevronRight } from "lucide-react";
+import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { EquipmentSection } from "@/components/EquipmentSection";
 
 export const Route = createFileRoute("/")({
   component: Index,
