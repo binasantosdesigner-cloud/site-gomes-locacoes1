@@ -158,49 +158,49 @@ function Index() {
         </div>
       </section>
 
+      {/* CTA Banner Section */}
+      <section className="bg-slate-900 border-t-4 border-[#FFCC00]">
+        <div className="container-custom py-12 px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Left: Specialist Avatar */}
+            <div className="flex-shrink-0">
+              <div className="w-24 h-24 md:w-28 md:h-28 bg-[#FFCC00] rounded-full flex items-center justify-center shadow-xl relative">
+                <Headphones size={48} className="text-slate-900" />
+                <div className="absolute -bottom-1 -right-1 bg-[#25D366] w-8 h-8 rounded-full border-4 border-slate-900 flex items-center justify-center">
+                  <div className="w-2 h-2 bg-white rounded-full animate-ping" />
+                </div>
+              </div>
+            </div>
 
-161:       {/* CTA Banner Section */}
-162:       <section className="bg-slate-900 border-t-4 border-[#FFCC00]">
-163:         <div className="container-custom py-12 px-6">
-164:           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-165:             {/* Left: Specialist Avatar */}
-166:             <div className="flex-shrink-0">
-167:               <div className="w-24 h-24 md:w-28 md:h-28 bg-[#FFCC00] rounded-full flex items-center justify-center shadow-xl relative">
-168:                 <Headphones size={48} className="text-slate-900" />
-169:                 <div className="absolute -bottom-1 -right-1 bg-[#25D366] w-8 h-8 rounded-full border-4 border-slate-900 flex items-center justify-center">
-170:                   <div className="w-2 h-2 bg-white rounded-full animate-ping" />
-171:                 </div>
-172:               </div>
-173:             </div>
-174: 
-175:             {/* Center: Commercial Text */}
-176:             <div className="flex-1 text-center md:text-left space-y-3">
-177:               <h3 className="text-2xl md:text-3xl font-bold text-white">
-178:                 Fale com nosso Especialista
-179:               </h3>
-180:               <p className="text-slate-200 text-lg max-w-2xl leading-relaxed">
-181:                 Não sabe qual equipamento escolher para o seu tipo de obra? Nossa equipe te ajuda a identificar a ferramenta ideal e passa o orçamento na hora.
-182:               </p>
-183:             </div>
-184: 
-185:             {/* Right: CTA Button */}
-186:             <div className="flex-shrink-0 w-full md:w-auto">
-187:               <motion.a
-188:                 whileHover={{ scale: 1.05 }}
-189:                 whileTap={{ scale: 0.95 }}
-190:                 href="https://wa.me/5566999101069?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20para%20escolher%20o%20equipamento%20ideal%20para%20minha%20obra."
-191:                 target="_blank"
-192:                 rel="noopener noreferrer"
-193:                 className="flex items-center justify-center gap-3 bg-[#FFCC00] text-slate-900 px-8 py-5 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
-194:               >
-195:                 <MessageCircle className="fill-current" />
-196:                 Iniciar Conversa no WhatsApp
-197:               </motion.a>
-198:             </div>
-199:           </div>
-200:         </div>
-201:       </section>
-202: 
+            {/* Center: Commercial Text */}
+            <div className="flex-1 text-center md:text-left space-y-3">
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
+                Fale com nosso Especialista
+              </h3>
+              <p className="text-slate-200 text-lg max-w-2xl leading-relaxed">
+                Não sabe qual equipamento escolher para o seu tipo de obra? Nossa equipe te ajuda a identificar a ferramenta ideal e passa o orçamento na hora.
+              </p>
+            </div>
+
+            {/* Right: CTA Button */}
+            <div className="flex-shrink-0 w-full md:w-auto">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://wa.me/5566999101069?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20para%20escolher%20o%20equipamento%20ideal%20para%20minha%20obra."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 bg-[#FFCC00] text-slate-900 px-8 py-5 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
+              >
+                <MessageCircle className="fill-current" />
+                Iniciar Conversa no WhatsApp
+              </motion.a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
       <footer className="bg-foreground text-background py-16">
         <div className="container-custom grid md:grid-cols-3 gap-12">
           <div className="space-y-4">
