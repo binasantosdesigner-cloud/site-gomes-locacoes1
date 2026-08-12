@@ -79,31 +79,7 @@ function Index() {
       </section>
 
       {/* Equipamentos */}
-      <section id="equipamentos" className="py-20 bg-gray-50">
-        <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center mb-12">Nossos Equipamentos (Pronta Entrega)</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PRODUCTS.map((prod) => (
-              <motion.div 
-                key={prod.id}
-                whileHover={{ y: -10 }}
-                className="bg-card rounded-xl shadow-md overflow-hidden flex flex-col"
-              >
-                <img src={prod.image} alt={prod.name} className="h-48 w-full object-cover" />
-                <div className="p-6 flex-grow flex flex-col justify-between">
-                  <h3 className="text-xl font-bold mb-4">Aluguel de {prod.name}</h3>
-                  <a 
-                    href={`https://wa.me/5566999101069?text=Olá, gostaria de orçar o aluguel de ${prod.name}`}
-                    className="whatsapp-button w-full py-3 rounded-lg flex items-center justify-center gap-2"
-                  >
-                    Orçar este equipamento
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <EquipmentSection />
 
       {/* Diferenciais */}
       <section id="diferenciais" className="py-20">
