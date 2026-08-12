@@ -36,14 +36,14 @@ function EquipmentCard({ item }: { item: Equipment }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      className="flex flex-col overflow-hidden rounded-xl bg-card shadow-md"
+      className="flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm transition-shadow hover:shadow-md"
     >
-      <div className="flex h-48 items-center justify-center bg-secondary overflow-hidden">
+      <div className="flex aspect-square items-center justify-center bg-[#F8FAFC] p-6 overflow-hidden">
         <img
           src={item.image}
           alt={`Aluguel de ${item.name} em Rondonópolis - Gomes Locações`}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+          className="h-full w-full object-contain transition-transform duration-300 hover:scale-105"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
             target.src = "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&q=80&w=800";
@@ -51,15 +51,17 @@ function EquipmentCard({ item }: { item: Equipment }) {
           }}
         />
       </div>
-      <div className="flex flex-1 flex-col justify-between gap-4 p-5">
-        <h3 className="text-lg font-bold">Aluguel de {item.name}</h3>
+      <div className="flex flex-1 flex-col justify-between gap-6 p-6">
+        <h3 className="text-base font-semibold text-slate-800 leading-tight">
+          {item.name}
+        </h3>
         <a
           href={buildLink(item.name)}
           target="_blank"
           rel="noopener noreferrer"
-          className="whatsapp-button flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg px-4"
+          className="whatsapp-button flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl px-4 text-base font-bold shadow-sm"
         >
-          <MessageCircle size={20} aria-hidden />
+          <MessageCircle size={22} aria-hidden />
           Orçar este equipamento
         </a>
       </div>
