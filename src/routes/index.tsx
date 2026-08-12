@@ -115,8 +115,19 @@ function Index() {
             <a href="#" className="block hover:underline">Termos de Locação</a>
           </div>
         </div>
-        <div className="container-custom mt-12 pt-8 border-t border-white/10 text-center text-muted-foreground">
-          © 2026 Gomes Locações. Todos os direitos reservados.
+        <div className="container-custom mt-12 pt-8 border-t border-white/10 text-center text-muted-foreground space-y-2">
+          <p>© 2026 Gomes Locações. Todos os direitos reservados.</p>
+          <p className="text-sm opacity-70">
+            Desenvolvido por:{" "}
+            <a 
+              href="https://boxcriativa.com.br/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors underline underline-offset-4"
+            >
+              Box Criativa
+            </a>
+          </p>
         </div>
       </footer>
     </div>
