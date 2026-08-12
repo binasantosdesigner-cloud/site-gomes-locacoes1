@@ -8,15 +8,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const PRODUCTS = [
-  { id: 1, name: "Compactador de Solo", image: "https://images.unsplash.com/photo-1541902313320-184930607775?auto=format&fit=crop&q=80&w=800" },
-  { id: 2, name: "Betoneira", image: "https://images.unsplash.com/photo-1596707474411-884852924303?auto=format&fit=crop&q=80&w=800" },
-  { id: 3, name: "Andaimes", image: "https://images.unsplash.com/photo-1503387762-592deb58e4e2?auto=format&fit=crop&q=80&w=800" },
-  { id: 4, name: "Compressor", image: "https://images.unsplash.com/photo-1542601906990-b4d3fb7780b9?auto=format&fit=crop&q=80&w=800" },
-  { id: 5, name: "Roçadeira", image: "https://images.unsplash.com/photo-1596464716127-f2a89787de8a?auto=format&fit=crop&q=80&w=800" },
-  { id: 6, name: "Martelete Demolidor", image: "https://images.unsplash.com/photo-1581094794329-c8112a4722b5?auto=format&fit=crop&q=80&w=800" },
-  { id: 7, name: "Perfurador de Solo", image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800" },
-];
 
 function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
