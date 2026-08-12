@@ -1,22 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X, ChevronRight } from "lucide-react";
+import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { EquipmentSection } from "@/components/EquipmentSection";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const PRODUCTS = [
-  { id: 1, name: "Compactador de Solo", image: "https://images.unsplash.com/photo-1541902313320-184930607775?auto=format&fit=crop&q=80&w=800" },
-  { id: 2, name: "Betoneira", image: "https://images.unsplash.com/photo-1596707474411-884852924303?auto=format&fit=crop&q=80&w=800" },
-  { id: 3, name: "Andaimes", image: "https://images.unsplash.com/photo-1503387762-592deb58e4e2?auto=format&fit=crop&q=80&w=800" },
-  { id: 4, name: "Compressor", image: "https://images.unsplash.com/photo-1542601906990-b4d3fb7780b9?auto=format&fit=crop&q=80&w=800" },
-  { id: 5, name: "Roçadeira", image: "https://images.unsplash.com/photo-1596464716127-f2a89787de8a?auto=format&fit=crop&q=80&w=800" },
-  { id: 6, name: "Martelete Demolidor", image: "https://images.unsplash.com/photo-1581094794329-c8112a4722b5?auto=format&fit=crop&q=80&w=800" },
-  { id: 7, name: "Perfurador de Solo", image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800" },
-];
 
 function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,31 +70,7 @@ function Index() {
       </section>
 
       {/* Equipamentos */}
-      <section id="equipamentos" className="py-20 bg-gray-50">
-        <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center mb-12">Nossos Equipamentos (Pronta Entrega)</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PRODUCTS.map((prod) => (
-              <motion.div 
-                key={prod.id}
-                whileHover={{ y: -10 }}
-                className="bg-card rounded-xl shadow-md overflow-hidden flex flex-col"
-              >
-                <img src={prod.image} alt={prod.name} className="h-48 w-full object-cover" />
-                <div className="p-6 flex-grow flex flex-col justify-between">
-                  <h3 className="text-xl font-bold mb-4">Aluguel de {prod.name}</h3>
-                  <a 
-                    href={`https://wa.me/5566999101069?text=Olá, gostaria de orçar o aluguel de ${prod.name}`}
-                    className="whatsapp-button w-full py-3 rounded-lg flex items-center justify-center gap-2"
-                  >
-                    Orçar este equipamento
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <EquipmentSection />
 
       {/* Diferenciais */}
       <section id="diferenciais" className="py-20">
