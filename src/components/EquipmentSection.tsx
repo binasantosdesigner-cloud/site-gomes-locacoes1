@@ -141,11 +141,11 @@ function Banner({
 }) {
   return (
     <div className={cn("rounded-2xl bg-foreground px-6 py-10 text-background sm:px-10", className)}>
-      <div className="mx-auto max-w-3xl space-y-4 text-center">
-        <h3 className="text-2xl font-extrabold sm:text-3xl">{title}</h3>
-        <p className="text-base opacity-80 sm:text-lg">{subtitle}</p>
-        {children}
-      </div>
+        <div className="mx-auto max-w-3xl space-y-4 text-center flex flex-col items-center">
+          <h3 className="text-2xl font-extrabold sm:text-3xl max-w-[25ch]">{title}</h3>
+          <p className="text-base opacity-80 sm:text-lg max-w-[60ch]">{subtitle}</p>
+          {children}
+        </div>
     </div>
   );
 }
@@ -154,9 +154,9 @@ export function EquipmentSection() {
   return (
     <section id="equipamentos" className="py-16 sm:py-20">
       <div className="container-custom space-y-14">
-        <header className="space-y-3 text-center">
-          <h2 className="text-3xl font-extrabold sm:text-4xl text-[#0E33AD]">Equipamentos com Pronta Entrega</h2>
-          <p className="text-muted-foreground">Máquinas revisadas e testadas antes de cada locação. Retire na loja ou receba direto no canteiro de obras.</p>
+        <header className="space-y-3 text-center flex flex-col items-center">
+          <h2 className="text-3xl font-extrabold sm:text-4xl text-[#0E33AD] max-w-[28ch]">Equipamentos com Pronta Entrega</h2>
+          <p className="text-muted-foreground max-w-[65ch]">Máquinas revisadas e testadas antes de cada locação. Retire na loja ou receba direto no canteiro de obras.</p>
         </header>
 
         <EquipmentBlock title="Concretagem e Altura" items={BLOCK_1} variant="carousel" />
@@ -182,10 +182,10 @@ export function EquipmentSection() {
         <EquipmentBlock title="Acabamento e Utilidades" items={BLOCK_3} compact />
 
         <section className="py-12 bg-[#F5F6FA] rounded-3xl">
-          <div className="container-custom space-y-8">
+          <div className="container-custom space-y-8 flex flex-col items-center">
             <header className="space-y-3 text-center">
-              <h2 className="text-3xl font-extrabold sm:text-4xl text-[#0E33AD]">Diária, Semanal ou Mensal — você escolhe.</h2>
-              <p className="text-muted-foreground">Cadastro simples para Pessoa Física e Jurídica, aprovação no mesmo dia.</p>
+              <h2 className="text-3xl font-extrabold sm:text-4xl text-[#0E33AD] max-w-[28ch]">Diária, Semanal ou Mensal — você escolhe.</h2>
+              <p className="text-muted-foreground max-w-[65ch]">Cadastro simples para Pessoa Física e Jurídica, aprovação no mesmo dia.</p>
             </header>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {[
@@ -203,9 +203,9 @@ export function EquipmentSection() {
         </section>
 
         <section className="py-16 bg-[#0E33AD] rounded-3xl text-white px-6 sm:px-10">
-          <div className="mx-auto max-w-3xl space-y-6 text-center">
-            <h3 className="text-2xl font-extrabold sm:text-3xl">Garantia de Produtividade na Sua Obra</h3>
-            <p className="text-base opacity-90 sm:text-lg">Se o equipamento apresentar defeito, substituímos na hora. Assistência técnica ágil pra sua obra não parar por nossa causa.</p>
+        <div className="container-custom mx-auto max-w-3xl space-y-6 text-center flex flex-col items-center">
+          <h3 className="text-2xl font-extrabold sm:text-3xl max-w-[25ch]">Garantia de Produtividade na Sua Obra</h3>
+          <p className="text-base opacity-90 sm:text-lg max-w-[65ch]">Se o equipamento apresentar defeito, substituímos na hora. Assistência técnica ágil pra sua obra não parar por nossa causa.</p>
             <div className="flex justify-center text-[#FFD000]">
               <ShieldCheck size={48} aria-hidden />
             </div>

@@ -69,20 +69,20 @@ function Index() {
           alt="Construção Civil"
         />
         <div className="absolute inset-0 bg-[#0E33AD]/40" />
-        <div className="container-custom relative z-10 text-center text-white space-y-6">
+        <div className="container-custom relative z-10 text-center text-white space-y-6 flex flex-col items-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-extrabold leading-tight"
+            className="text-4xl md:text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold leading-tight max-w-[22ch]"
           >
             Locação de Equipamentos para Construção Civil em Rondonópolis
           </motion.h1>
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col items-center">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl md:text-2xl font-light"
+              className="text-xl md:text-2xl font-light max-w-[65ch]"
             >
               Entrega em até 2h* na sua obra, mediante disponibilidade. Frota revisada e pronta pra uso, sem burocracia no cadastro.
             </motion.h2>
@@ -133,10 +133,10 @@ function Index() {
       <section className="py-20 bg-slate-50">
         <div className="container-custom max-w-4xl">
           <header className="space-y-4 text-center mb-12">
-            <h2 className="text-3xl font-extrabold sm:text-4xl text-slate-900">
+            <h2 className="text-3xl font-extrabold sm:text-4xl text-slate-900 mx-auto max-w-[28ch]">
               Dúvidas Frequentes sobre Locação de Equipamentos em Rondonópolis
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-600 mx-auto max-w-[70ch]">
               Tudo o que você precisa saber para alugar máquinas e ferramentas para sua obra sem burocracia.
             </p>
           </header>
@@ -206,10 +206,10 @@ function Index() {
 
             {/* Center: Commercial Text */}
             <div className="flex-1 text-center md:text-left space-y-3">
-              <h3 className="text-2xl md:text-3xl font-bold text-white">
+              <h3 className="text-2xl md:text-3xl font-bold text-white max-w-[25ch]">
                 Fale com nosso Especialista
               </h3>
-              <p className="text-slate-200 text-lg max-w-2xl leading-relaxed">
+              <p className="text-slate-200 text-lg max-w-[60ch] leading-relaxed">
                 Não sabe qual equipamento sua obra precisa? Fala com a gente agora — te ajudamos a escolher e já mandamos o orçamento.
               </p>
             </div>
