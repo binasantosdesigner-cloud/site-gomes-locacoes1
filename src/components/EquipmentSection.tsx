@@ -113,7 +113,7 @@ export function EquipmentSection() {
           <p className="text-muted-foreground">Máquinas revisadas e testadas antes de cada locação. Retire na loja ou receba direto no canteiro de obras.</p>
         </header>
 
-        <EquipmentBlock title="Concretagem e Altura" items={BLOCK_1} />
+        <EquipmentBlock title="Concretagem e Altura" items={BLOCK_1} variant="carousel" />
 
         <Banner
           title="Atraso de equipamento gera atraso de obra — e isso custa caro."
@@ -131,10 +131,9 @@ export function EquipmentSection() {
           </a>
         </Banner>
 
-        <EquipmentBlock title="Solo e Energia" items={BLOCK_2} />
+        <EquipmentBlock title="Solo e Energia" items={BLOCK_2} compact />
 
-
-        <EquipmentBlock title="Acabamento e Utilidades" items={BLOCK_3} />
+        <EquipmentBlock title="Acabamento e Utilidades" items={BLOCK_3} compact />
 
         <section className="py-12 bg-[#F5F6FA] rounded-3xl">
           <div className="container-custom space-y-8">

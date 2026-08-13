@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X, MessageCircle, Headphones } from "lucide-react";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { EquipmentSection } from "@/components/EquipmentSection";
 import {
   Accordion,
@@ -17,6 +17,27 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
+  const [hideCTAForSpecialist, setHideCTAForSpecialist] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      // Show after hero (~600px)
+      setShowStickyCTA(scrollY > 500);
+
+      // Hide if near "Fale com nosso Especialista" section
+      // Usually that section is at the bottom before footer
+      const specialistSection = document.getElementById('contato-especialista');
+      if (specialistSection) {
+        const rect = specialistSection.getBoundingClientRect();
+        setHideCTAForSpecialist(rect.top < window.innerHeight);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -170,7 +191,7 @@ function Index() {
       </section>
 
       {/* CTA Banner Section */}
-      <section className="bg-[#0E33AD] border-t-4 border-[#FFD000]">
+      <section id="contato-especialista" className="bg-[#0E33AD] border-t-4 border-[#FFD000]">
         <div className="container-custom py-12 px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Left: Specialist Avatar */}
@@ -254,15 +275,40 @@ function Index() {
           </div>
         </div>
       </footer>
-      {/* Floating WhatsApp Button */}
+      {/* Sticky Mobile CTA */}
+      <AnimatePresence>
+        {showStickyCTA && !hideCTAForSpecialist && (
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 100, opacity: 0 }}
+            className="fixed bottom-6 left-4 right-4 z-[60] md:hidden"
+          >
+            <a
+              href="https://wa.me/5566999101069?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20equipamento%20para%20minha%20obra."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full bg-[#FFD000] text-[#1A1A1A] py-4 px-6 rounded-full font-bold shadow-2xl active:scale-95 transition-transform"
+            >
+              <MessageCircle className="w-6 h-6 fill-current" />
+              <span>Orçar Equipamento</span>
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Floating WhatsApp Button (Hidden on Mobile when Sticky CTA is active) */}
       <motion.a
         href="https://wa.me/5566999101069?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20loca%C3%A7%C3%A3o%20de%20equipamentos."
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        animate={{ 
+          scale: (showStickyCTA && !hideCTAForSpecialist) ? 0 : 1, 
+          opacity: (showStickyCTA && !hideCTAForSpecialist) ? 0 : 1 
+        }}
         whileHover={{ scale: 1.1 }}
-        className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-transform"
+        className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-transform hidden md:flex"
         aria-label="Falar no WhatsApp"
       >
         <motion.div
@@ -279,6 +325,23 @@ function Index() {
           <MessageCircle size={32} fill="currentColor" />
         </motion.div>
       </motion.a>
+      
+      {/* Small mobile float if sticky is NOT active or hide for specialist is active */}
+      <AnimatePresence>
+        {(!showStickyCTA || hideCTAForSpecialist) && (
+          <motion.a
+            href="https://wa.me/5566999101069?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20loca%C3%A7%C3%A3o%20de%20equipamentos."
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl md:hidden"
+          >
+             <MessageCircle size={28} fill="currentColor" />
+          </motion.a>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
