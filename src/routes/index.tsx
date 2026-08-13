@@ -332,6 +332,9 @@ function Index() {
         )}
       </AnimatePresence>
 
+      {/* Spacing for mobile sticky CTA */}
+      <div className="h-20 md:hidden" />
+
       {/* Floating WhatsApp Button (Hidden on Mobile when Sticky CTA is active) */}
       <motion.a
         href="https://wa.me/5566999101069?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20loca%C3%A7%C3%A3o%20de%20equipamentos."
