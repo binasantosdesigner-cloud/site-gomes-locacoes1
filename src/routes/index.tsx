@@ -114,9 +114,9 @@ function Index() {
       <section id="diferenciais" className="py-20 bg-[#F5F6FA]">
         <div className="container-custom grid md:grid-cols-3 gap-12 text-center">
           {[
-            { Icon: Clock, title: "Entrega Rápida", desc: "Equipamento na sua obra em até 2h, mediante disponibilidade." },
-            { Icon: Wrench, title: "Revisão Técnica", desc: "Toda máquina passa por checklist antes de sair da loja." },
-            { Icon: Check, title: "Cadastro sem Burocracia", desc: "Atendemos pedreiro autônomo, empreiteira e construtora, PF ou PJ." }
+            { Icon: Clock, title: "Entrega Rápida", desc: <>Equipamento na sua obra em até 2h,<br className="hidden md:block" />mediante disponibilidade.</> },
+            { Icon: Wrench, title: "Revisão Técnica", desc: <>Toda máquina passa por checklist<br className="hidden md:block" />antes de sair da loja.</> },
+            { Icon: Check, title: "Cadastro sem Burocracia", desc: <>Atendemos pedreiro, empreiteira<br className="hidden md:block" />ou construtora, PF ou PJ.</> }
           ].map((item, idx) => (
             <div key={idx} className="space-y-4">
               <div className="mx-auto w-16 h-16 bg-[#0E33AD]/10 text-[#0E33AD] rounded-full flex items-center justify-center">
