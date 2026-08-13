@@ -38,7 +38,7 @@ function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: b
       viewport={{ once: true, amount: 0.2 }}
       className={cn(
         "flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm transition-shadow hover:shadow-md",
-        "flex-shrink-0 w-[85vw] sm:w-auto scroll-snap-align-start"
+        "flex-shrink-0 w-[85vw] sm:w-full scroll-snap-align-start"
       )}
     >
       <div className={cn(
@@ -115,8 +115,8 @@ function EquipmentBlock({
         </div>
       ) : (
         <div className={cn(
-          "grid gap-3 sm:gap-6",
-          compact ? "grid-cols-2 lg:grid-cols-3 px-2 sm:px-0" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 sm:px-0"
+          "grid gap-4 sm:gap-6",
+          compact ? "grid-cols-2 lg:grid-cols-3 px-4 sm:px-0" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 sm:px-0"
         )}>
           {items.map((item) => (
             <EquipmentCard key={item.name} item={item} compact={compact} />
@@ -194,13 +194,13 @@ export function EquipmentSection() {
               <h2 className="text-3xl font-extrabold sm:text-4xl text-[#0E33AD] max-w-[28ch]">Diária, Semanal ou Mensal — você escolhe.</h2>
               <p className="text-muted-foreground max-w-[65ch]">Cadastro simples para Pessoa Física e Jurídica, aprovação no mesmo dia.</p>
             </header>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
               {[
                 { Icon: CalendarDays, label: "Diária" },
                 { Icon: CalendarRange, label: "Semanal" },
                 { Icon: CalendarClock, label: "Mensal" },
               ].map(({ Icon, label }) => (
-                <div key={label} className="flex items-center justify-center gap-3 rounded-xl bg-[#FFD000] px-4 py-4 font-bold text-[#1A1A1A] shadow-sm">
+                <div key={label} className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 rounded-xl bg-[#FFD000] px-2 py-3 sm:px-4 sm:py-4 font-bold text-[#1A1A1A] shadow-sm text-[10px] xs:text-xs sm:text-base">
                   <Icon size={24} aria-hidden />
                   {label}
                 </div>
