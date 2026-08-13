@@ -211,8 +211,8 @@ export function EquipmentSection() {
 
         <section className="py-16 bg-[#0E33AD] rounded-3xl text-white px-6 sm:px-10">
         <div className="container-custom mx-auto max-w-3xl space-y-6 text-center flex flex-col items-center">
-          <h3 className="text-2xl font-extrabold sm:text-3xl max-w-[32ch]">Garantia de Produtividade na Sua Obra</h3>
-          <p className="text-base opacity-90 sm:text-lg max-w-[70ch]">Se o equipamento apresentar defeito, substituímos na hora. Assistência técnica ágil pra sua obra não parar por nossa causa.</p>
+          <h3 className="text-2xl font-extrabold sm:text-3xl max-w-[32ch]">Garantia de Produtividade{" "}<br className="hidden md:block" /> na Sua Obra</h3>
+          <p className="text-base opacity-90 sm:text-lg max-w-[70ch]">Se o equipamento apresentar defeito, substituímos na hora.{" "}<br className="hidden md:block" /> Assistência técnica ágil pra sua obra não parar por nossa causa.</p>
             <div className="flex justify-center text-[#FFD000]">
               <ShieldCheck size={48} aria-hidden />
             </div>
