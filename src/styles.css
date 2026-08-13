@@ -2,7 +2,7 @@
 @source "../src";
 
 @utility whatsapp-button {
-  @apply bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold transition-all duration-300;
+  @apply bg-[#FFD000] hover:bg-[#E6B800] text-[#1A1A1A] font-bold transition-all duration-300;
 }
 
 @utility container-custom {
@@ -70,38 +70,38 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.985 0.002 247.858); /* #F8FAFC equivalent */
-  --foreground: oklch(0.208 0.042 265.755); /* Azul Marinho Escuro #1E293B */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.208 0.042 265.755);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.208 0.042 265.755);
-  --primary: oklch(0.844 0.17 84.429); /* Amarelo Construção #FFCC00 approx */
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.929 0.013 255.508);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.929 0.013 255.508);
-  --muted-foreground: oklch(0.45 0.04 260);
-  --accent: oklch(0.929 0.013 255.508);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.844 0.17 84.429);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.985 0.002 247.858);
-  --sidebar-primary: oklch(0.844 0.17 84.429);
-  --sidebar-primary-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-accent: oklch(0.3 0.04 265);
-  --sidebar-accent-foreground: oklch(0.985 0.002 247.858);
-  --sidebar-border: oklch(0.3 0.04 265);
-  --sidebar-ring: oklch(0.844 0.17 84.429);
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --primary: #FFD000;
+  --primary-foreground: #1A1A1A;
+  --secondary: #F5F6FA;
+  --secondary-foreground: #1A1A1A;
+  --muted: #F5F6FA;
+  --muted-foreground: #64748b;
+  --accent: #F5F6FA;
+  --accent-foreground: #1A1A1A;
+  --destructive: #dc2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #FFD000;
+  --chart-1: #0E33AD;
+  --chart-2: #0A2680;
+  --chart-3: #FFD000;
+  --chart-4: #1A1A1A;
+  --chart-5: #64748b;
+  --sidebar: #0E33AD;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #FFD000;
+  --sidebar-primary-foreground: #1A1A1A;
+  --sidebar-accent: #0A2680;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #0A2680;
+  --sidebar-ring: #FFD000;
 }
 
 .dark {
