@@ -41,7 +41,7 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-sm border-b">
         <nav className="container-custom flex items-center justify-between h-20">

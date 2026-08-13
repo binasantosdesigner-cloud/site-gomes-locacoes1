@@ -38,7 +38,7 @@ function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: b
       viewport={{ once: true, amount: 0.2 }}
       className={cn(
         "flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm transition-shadow hover:shadow-md",
-        "flex-shrink-0 w-[85vw] sm:w-full scroll-snap-align-start"
+        compact ? "w-full" : "flex-shrink-0 w-[85vw] sm:w-full scroll-snap-align-start"
       )}
     >
       <div className={cn(
@@ -73,7 +73,7 @@ function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: b
           rel="noopener noreferrer"
           className={cn(
             "whatsapp-button flex items-center justify-center gap-2 rounded-xl text-base font-bold shadow-sm transition-transform active:scale-95",
-            compact ? "min-h-[52px] px-4" : "min-h-[52px] w-full px-4"
+            compact ? "min-h-[52px] px-2 text-xs xs:text-sm sm:text-base sm:px-4" : "min-h-[52px] w-full px-4"
           )}
         >
           <MessageCircle size={22} aria-hidden />
