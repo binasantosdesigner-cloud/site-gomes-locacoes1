@@ -136,8 +136,8 @@ function Index() {
             <h2 className="text-3xl font-extrabold sm:text-4xl text-slate-900 mx-auto max-w-[35ch]">
               Dúvidas Frequentes sobre Locação de Equipamentos em Rondonópolis
             </h2>
-            <p className="text-lg text-slate-600 mx-auto max-w-[70ch]">
-              Tudo o que você precisa saber para alugar máquinas e ferramentas para sua obra sem burocracia.
+            <p className="text-lg text-slate-600 mx-auto">
+              Tudo o que você precisa saber para alugar máquinas<br className="hidden md:block" /> e ferramentas para sua obra sem burocracia.
             </p>
           </header>
 
