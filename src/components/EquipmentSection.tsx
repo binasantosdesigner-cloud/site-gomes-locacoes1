@@ -109,24 +109,25 @@ export function EquipmentSection() {
     <section id="equipamentos" className="py-16 sm:py-20">
       <div className="container-custom space-y-14">
         <header className="space-y-3 text-center">
-          <h2 className="text-3xl font-extrabold sm:text-4xl">Nossos Equipamentos (Pronta Entrega)</h2>
-          <p className="text-muted-foreground">Frota revisada e disponível para retirada ou entrega na sua obra.</p>
+          <h2 className="text-3xl font-extrabold sm:text-4xl text-[#0E33AD]">Equipamentos com Pronta Entrega</h2>
+          <p className="text-muted-foreground">Máquinas revisadas e testadas antes de cada locação. Retire na loja ou receba direto no canteiro de obras.</p>
         </header>
 
         <EquipmentBlock title="Concretagem e Altura" items={BLOCK_1} />
 
         <Banner
-          title="Sua obra não pode parar por falta de equipamento."
-          subtitle="Máquinas revisadas, testadas e prontas para uso. Entrega rápida no canteiro de obras em Rondonópolis."
+          title="Atraso de equipamento gera atraso de obra — e isso custa caro."
+          subtitle="Nossa frota fica pronta pra retirada imediata. Ligou, confirmou, equipamento na sua obra em até 2h*."
+          className="bg-[#0E33AD]"
         >
           <a
-            href={`${WHATSAPP}?text=${encodeURIComponent("Olá, preciso falar com um atendente da Gomes Locações.")}`}
+            href={`${WHATSAPP}?text=${encodeURIComponent("Olá, gostaria de fazer um orçamento.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="whatsapp-button mt-2 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-8"
           >
             <MessageCircle size={20} aria-hidden />
-            Falar no WhatsApp
+            Fazer Orçamento Agora
           </a>
         </Banner>
 
@@ -152,14 +153,36 @@ export function EquipmentSection() {
 
         <EquipmentBlock title="Acabamento e Utilidades" items={BLOCK_3} />
 
-        <Banner
-          title="Garantia de Produtividade na Sua Obra"
-          subtitle="Assistência técnica ágil e substituição de equipamentos se necessário."
-        >
-          <div className="mt-2 flex justify-center text-primary">
-            <ShieldCheck size={40} aria-hidden />
+        <section className="py-12 bg-[#F5F6FA] rounded-3xl">
+          <div className="container-custom space-y-8">
+            <header className="space-y-3 text-center">
+              <h2 className="text-3xl font-extrabold sm:text-4xl text-[#0E33AD]">Diária, Semanal ou Mensal — você escolhe.</h2>
+              <p className="text-muted-foreground">Cadastro simples para Pessoa Física e Jurídica, aprovação no mesmo dia.</p>
+            </header>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {[
+                { Icon: CalendarDays, label: "Diária" },
+                { Icon: CalendarRange, label: "Semanal" },
+                { Icon: CalendarClock, label: "Mensal" },
+              ].map(({ Icon, label }) => (
+                <div key={label} className="flex items-center justify-center gap-3 rounded-xl bg-[#FFD000] px-4 py-4 font-bold text-[#1A1A1A] shadow-sm">
+                  <Icon size={24} aria-hidden />
+                  {label}
+                </div>
+              ))}
+            </div>
           </div>
-        </Banner>
+        </section>
+
+        <section className="py-16 bg-[#0E33AD] rounded-3xl text-white px-6 sm:px-10">
+          <div className="mx-auto max-w-3xl space-y-6 text-center">
+            <h3 className="text-2xl font-extrabold sm:text-3xl">Garantia de Produtividade na Sua Obra</h3>
+            <p className="text-base opacity-90 sm:text-lg">Se o equipamento apresentar defeito, substituímos na hora. Assistência técnica ágil pra sua obra não parar por nossa causa.</p>
+            <div className="flex justify-center text-[#FFD000]">
+              <ShieldCheck size={48} aria-hidden />
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   );
