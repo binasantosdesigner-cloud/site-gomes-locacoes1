@@ -3,7 +3,7 @@ import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X, MessageCircle, H
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { EquipmentSection } from "@/components/EquipmentSection";
-import heroAsset from "@/assets/trabalhador-serra.jpg.asset.json";
+import heroAsset from "@/assets/banner_site.jpg.asset.json";
 import {
   Accordion,
   AccordionContent,
@@ -67,21 +67,19 @@ function Index() {
         <div className="absolute inset-0 w-full h-full">
           <img 
             src={heroAsset.url} 
-            className="w-full h-full object-cover saturate-[0.7]"
+            className="w-full h-full object-cover"
             style={{ 
-              objectPosition: "center 20%" 
+              objectPosition: "center" 
             }}
             alt="Trabalhador da construção operando serra circular"
           />
-          {/* Overlay gradiente: mais escuro na esquerda (texto) e azul da marca */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E33AD]/85 via-[#0E33AD]/70 to-[#0E33AD]/50" />
         </div>
         
         <div className="container-custom relative z-10 text-white space-y-6 flex flex-col items-start text-left md:ml-0">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold leading-tight max-w-[32ch]"
+            className="text-4xl md:text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold leading-tight max-w-[32ch] text-[#FFD000]"
           >
             Locação de Equipamentos para Construção Civil em Rondonópolis
           </motion.h1>
