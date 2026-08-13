@@ -23,7 +23,7 @@ function Index() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-sm border-b">
         <nav className="container-custom flex items-center justify-between h-20">
-          <div className="flex items-center gap-2 font-bold text-2xl text-primary">
+          <div className="flex items-center gap-2 font-bold text-2xl text-[#0E33AD]">
             <HardHat size={32} />
             <span>Gomes Locações</span>
           </div>
@@ -47,6 +47,7 @@ function Index() {
           className="absolute inset-0 w-full h-full object-cover brightness-50"
           alt="Construção Civil"
         />
+        <div className="absolute inset-0 bg-[#0E33AD]/40" />
         <div className="container-custom relative z-10 text-center text-white space-y-6">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -55,20 +56,30 @@ function Index() {
           >
             Locação de Equipamentos para Construção Civil em Rondonópolis
           </motion.h1>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl font-light"
-          >
-            Sem burocracia, entrega rápida e frota revisada.
-          </motion.h2>
+          <div className="space-y-4">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl md:text-2xl font-light"
+            >
+              Entrega em até 2h* na sua obra, mediante disponibilidade. Frota revisada e pronta pra uso, sem burocracia no cadastro.
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="text-xs md:text-sm text-white/80"
+            >
+              *Prazo sujeito à disponibilidade de estoque e região de entrega.
+            </motion.p>
+          </div>
           <motion.a 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, repeat: Infinity, repeatType: "reverse", duration: 2 }}
+            transition={{ delay: 0.4 }}
             href="https://wa.me/5566999101069" 
-            className="inline-block whatsapp-button px-8 py-4 rounded-xl text-lg shadow-lg"
+            className="inline-block whatsapp-button px-8 py-4 rounded-xl text-lg shadow-lg hover:scale-105"
           >
             Fazer Orçamento Agora
           </motion.a>
@@ -79,15 +90,15 @@ function Index() {
       <EquipmentSection />
 
       {/* Diferenciais */}
-      <section id="diferenciais" className="py-20">
+      <section id="diferenciais" className="py-20 bg-[#F5F6FA]">
         <div className="container-custom grid md:grid-cols-3 gap-12 text-center">
           {[
-            { Icon: Clock, title: "Entrega Rápida", desc: "Na sua obra no prazo combinado." },
-            { Icon: Wrench, title: "Equipamentos Revisados", desc: "Ferramentas prontas para o trabalho pesado." },
-            { Icon: Check, title: "Locação sem Burocracia", desc: "Atendemos Pedreiros, Empreiteiros e Construtoras." }
+            { Icon: Clock, title: "Entrega Rápida", desc: "Equipamento na sua obra em até 2h, mediante disponibilidade." },
+            { Icon: Wrench, title: "Revisão Técnica", desc: "Toda máquina passa por checklist antes de sair da loja." },
+            { Icon: Check, title: "Cadastro sem Burocracia", desc: "Atendemos pedreiro autônomo, empreiteira e construtora, PF ou PJ." }
           ].map((item, idx) => (
             <div key={idx} className="space-y-4">
-              <div className="mx-auto w-16 h-16 bg-primary/20 text-primary rounded-full flex items-center justify-center">
+              <div className="mx-auto w-16 h-16 bg-[#0E33AD]/10 text-[#0E33AD] rounded-full flex items-center justify-center">
                 <item.Icon size={32} />
               </div>
               <h3 className="text-xl font-bold">{item.title}</h3>
@@ -110,7 +121,7 @@ function Index() {
           </header>
 
           <Accordion type="single" collapsible className="w-full space-y-4">
-            <AccordionItem value="item-1" className="bg-white border rounded-xl px-4">
+            <AccordionItem value="item-1" className="bg-white border border-[#0E33AD]/20 rounded-xl px-4 hover:border-[#0E33AD] transition-colors">
               <AccordionTrigger className="text-base font-bold text-slate-800 hover:no-underline py-6">
                 Como funciona o aluguel de equipamentos para construção na Gomes Locações?
               </AccordionTrigger>
@@ -119,7 +130,7 @@ function Index() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="bg-white border rounded-xl px-4">
+            <AccordionItem value="item-2" className="bg-white border border-[#0E33AD]/20 rounded-xl px-4 hover:border-[#0E33AD] transition-colors">
               <AccordionTrigger className="text-base font-bold text-slate-800 hover:no-underline py-6">
                 Vocês entregam os equipamentos direto na obra em Rondonópolis?
               </AccordionTrigger>
@@ -128,7 +139,7 @@ function Index() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="bg-white border rounded-xl px-4">
+            <AccordionItem value="item-3" className="bg-white border border-[#0E33AD]/20 rounded-xl px-4 hover:border-[#0E33AD] transition-colors">
               <AccordionTrigger className="text-base font-bold text-slate-800 hover:no-underline py-6">
                 Quais são os períodos de locação disponíveis (diária, semanal, mensal)?
               </AccordionTrigger>
@@ -137,7 +148,7 @@ function Index() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="bg-white border rounded-xl px-4">
+            <AccordionItem value="item-4" className="bg-white border border-[#0E33AD]/20 rounded-xl px-4 hover:border-[#0E33AD] transition-colors">
               <AccordionTrigger className="text-base font-bold text-slate-800 hover:no-underline py-6">
                 O que acontece se o equipamento apresentar algum defeito durante o uso na obra?
               </AccordionTrigger>
@@ -146,7 +157,7 @@ function Index() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5" className="bg-white border rounded-xl px-4">
+            <AccordionItem value="item-5" className="bg-white border border-[#0E33AD]/20 rounded-xl px-4 hover:border-[#0E33AD] transition-colors">
               <AccordionTrigger className="text-base font-bold text-slate-800 hover:no-underline py-6">
                 Pessoa Física (CPF) pode alugar ferramentas ou somente Empresas (CNPJ)?
               </AccordionTrigger>
@@ -159,14 +170,14 @@ function Index() {
       </section>
 
       {/* CTA Banner Section */}
-      <section className="bg-slate-900 border-t-4 border-[#FFCC00]">
+      <section className="bg-[#0E33AD] border-t-4 border-[#FFD000]">
         <div className="container-custom py-12 px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Left: Specialist Avatar */}
             <div className="flex-shrink-0">
-              <div className="w-24 h-24 md:w-28 md:h-28 bg-[#FFCC00] rounded-full flex items-center justify-center shadow-xl relative">
-                <Headphones size={48} className="text-slate-900" />
-                <div className="absolute -bottom-1 -right-1 bg-[#25D366] w-8 h-8 rounded-full border-4 border-slate-900 flex items-center justify-center">
+              <div className="w-24 h-24 md:w-28 md:h-28 bg-[#FFD000] rounded-full flex items-center justify-center shadow-xl relative text-[#1A1A1A]">
+                <Headphones size={48} />
+                <div className="absolute -bottom-1 -right-1 bg-[#25D366] w-8 h-8 rounded-full border-4 border-[#0E33AD] flex items-center justify-center">
                   <div className="w-2 h-2 bg-white rounded-full animate-ping" />
                 </div>
               </div>
@@ -178,7 +189,7 @@ function Index() {
                 Fale com nosso Especialista
               </h3>
               <p className="text-slate-200 text-lg max-w-2xl leading-relaxed">
-                Não sabe qual equipamento escolher para o seu tipo de obra? Nossa equipe te ajuda a identificar a ferramenta ideal e passa o orçamento na hora.
+                Não sabe qual equipamento sua obra precisa? Fala com a gente agora — te ajudamos a escolher e já mandamos o orçamento.
               </p>
             </div>
 
@@ -190,7 +201,7 @@ function Index() {
                 href="https://wa.me/5566999101069?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20para%20escolher%20o%20equipamento%20ideal%20para%20minha%20obra."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 bg-[#FFCC00] text-slate-900 px-8 py-5 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
+                className="flex items-center justify-center gap-3 bg-[#FFD000] text-[#1A1A1A] px-8 py-5 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all w-full md:w-auto hover:scale-105"
               >
                 <MessageCircle className="fill-current" />
                 Iniciar Conversa no WhatsApp
@@ -201,7 +212,7 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-background py-16">
+      <footer className="bg-[#0A2680] text-white py-16">
         <div className="container-custom grid md:grid-cols-3 gap-12">
           <div className="space-y-4">
             <h4 className="font-bold text-xl flex items-center gap-2"><HardHat /> Gomes Locações</h4>
