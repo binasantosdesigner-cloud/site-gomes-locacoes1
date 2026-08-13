@@ -5,7 +5,23 @@
   @apply bg-[#FFD000] hover:bg-[#E6B800] text-[#1A1A1A] font-bold transition-all duration-300;
 }
 
-@utility container-custom {
+  @utility no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  @utility scroll-snap-x-mandatory {
+    scroll-snap-type: x mandatory;
+  }
+
+  @utility scroll-snap-align-start {
+    scroll-snap-align: start;
+  }
+
+  @utility container-custom {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 

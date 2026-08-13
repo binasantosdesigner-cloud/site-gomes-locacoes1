@@ -30,15 +30,21 @@ const BLOCK_3: Equipment[] = [
   { name: "Guincho de Coluna", image: "/imagens/Guincho de coluna.jpg" },
 ];
 
-function EquipmentCard({ item }: { item: Equipment }) {
+function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: boolean }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      className="flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm transition-shadow hover:shadow-md"
+      className={cn(
+        "flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm transition-shadow hover:shadow-md",
+        "flex-shrink-0 w-[85vw] sm:w-auto scroll-snap-align-start"
+      )}
     >
-      <div className="flex aspect-square items-center justify-center bg-[#F8FAFC] p-6 overflow-hidden">
+      <div className={cn(
+        "flex aspect-square items-center justify-center bg-[#F8FAFC] overflow-hidden",
+        compact ? "p-3 sm:p-6" : "p-6"
+      )}>
         <img
           src={item.image}
           alt={`Aluguel de ${item.name} em Rondonópolis - Gomes Locações`}
@@ -51,33 +57,73 @@ function EquipmentCard({ item }: { item: Equipment }) {
           }}
         />
       </div>
-      <div className="flex flex-1 flex-col justify-between gap-6 p-6">
-        <h3 className="text-base font-semibold text-slate-800 leading-tight">
+      <div className={cn(
+        "flex flex-1 flex-col justify-between gap-4 sm:gap-6",
+        compact ? "p-3 sm:p-6" : "p-6"
+      )}>
+        <h3 className={cn(
+          "font-semibold text-slate-800 leading-tight",
+          compact ? "text-sm sm:text-base" : "text-base"
+        )}>
           {item.name}
         </h3>
         <a
           href={buildLink(item.name)}
           target="_blank"
           rel="noopener noreferrer"
-          className="whatsapp-button flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl px-4 text-base font-bold shadow-sm"
+          className={cn(
+            "whatsapp-button flex items-center justify-center gap-2 rounded-xl text-base font-bold shadow-sm transition-transform active:scale-95",
+            compact ? "min-h-[44px] sm:min-h-[52px] px-2 sm:px-4 text-xs sm:text-base" : "min-h-[52px] w-full px-4"
+          )}
         >
-          <MessageCircle size={22} aria-hidden />
-          Orçar este equipamento
+          <MessageCircle size={compact ? 18 : 22} aria-hidden />
+          <span className={compact ? "hidden xs:inline" : ""}>Orçar este equipamento</span>
+          {compact && <span className="xs:hidden">Orçar</span>}
         </a>
       </div>
     </motion.article>
   );
 }
 
-function EquipmentBlock({ title, items }: { title: string; items: Equipment[] }) {
+function EquipmentBlock({ 
+  title, 
+  items, 
+  variant = "grid",
+  compact = false 
+}: { 
+  title: string; 
+  items: Equipment[]; 
+  variant?: "grid" | "carousel";
+  compact?: boolean;
+}) {
   return (
     <div className="space-y-6">
-      <h3 className="text-xl font-bold sm:text-2xl">{title}</h3>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((item) => (
-          <EquipmentCard key={item.name} item={item} />
-        ))}
-      </div>
+      <h3 className="text-xl font-bold sm:text-2xl px-4 sm:px-0">{title}</h3>
+      
+      {variant === "carousel" ? (
+        <div className="relative">
+          <div className="flex gap-4 overflow-x-auto pb-6 px-4 no-scrollbar scroll-snap-x-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:px-0 sm:overflow-visible sm:pb-0">
+            {items.map((item) => (
+              <EquipmentCard key={item.name} item={item} />
+            ))}
+          </div>
+          {/* Scroll Indicators (Mobile only) */}
+          <div className="flex justify-center gap-1.5 sm:hidden">
+            {items.map((_, i) => (
+              <div key={i} className="h-1.5 w-1.5 rounded-full bg-slate-300 first:bg-[#0E33AD]" />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className={cn(
+          "grid gap-3 sm:gap-6",
+          compact ? "grid-cols-2 lg:grid-cols-3 px-2 sm:px-0" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 sm:px-0"
+        )}>
+          {items.map((item) => (
+            <EquipmentCard key={item.name} item={item} compact={compact} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -113,7 +159,7 @@ export function EquipmentSection() {
           <p className="text-muted-foreground">Máquinas revisadas e testadas antes de cada locação. Retire na loja ou receba direto no canteiro de obras.</p>
         </header>
 
-        <EquipmentBlock title="Concretagem e Altura" items={BLOCK_1} />
+        <EquipmentBlock title="Concretagem e Altura" items={BLOCK_1} variant="carousel" />
 
         <Banner
           title="Atraso de equipamento gera atraso de obra — e isso custa caro."
@@ -131,10 +177,9 @@ export function EquipmentSection() {
           </a>
         </Banner>
 
-        <EquipmentBlock title="Solo e Energia" items={BLOCK_2} />
+        <EquipmentBlock title="Solo e Energia" items={BLOCK_2} compact />
 
-
-        <EquipmentBlock title="Acabamento e Utilidades" items={BLOCK_3} />
+        <EquipmentBlock title="Acabamento e Utilidades" items={BLOCK_3} compact />
 
         <section className="py-12 bg-[#F5F6FA] rounded-3xl">
           <div className="container-custom space-y-8">
