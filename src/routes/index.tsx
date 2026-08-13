@@ -257,7 +257,7 @@ function Index() {
           </div>
         </div>
         <div className="container-custom mt-12 pt-8 border-t border-white/10 text-center text-white/60">
-          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm md:text-base">
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs opacity-70">
             <span>© 2026 Gomes Locações. Todos os direitos reservados.</span>
             <span className="hidden md:inline">|</span>
             <span className="md:hidden">•</span>
