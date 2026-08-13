@@ -133,16 +133,16 @@ function Banner({
   children,
   className,
 }: {
-  title: string;
-  subtitle: string;
+  title: React.ReactNode;
+  subtitle: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
 }) {
   return (
     <div className={cn("rounded-2xl bg-foreground px-6 py-10 text-background sm:px-10", className)}>
         <div className="mx-auto max-w-3xl space-y-4 text-center flex flex-col items-center">
-          <h3 className="text-2xl font-extrabold sm:text-3xl max-w-[40ch]">{title}</h3>
-          <p className="text-base opacity-80 sm:text-lg max-w-[65ch]">{subtitle}</p>
+          <h3 className="text-2xl font-extrabold sm:text-3xl">{title}</h3>
+          <p className="text-base opacity-80 sm:text-lg">{subtitle}</p>
           {children}
         </div>
     </div>
@@ -161,8 +161,16 @@ export function EquipmentSection() {
         <EquipmentBlock title="Concretagem e Altura" items={BLOCK_1} variant="carousel" />
 
         <Banner
-          title="Atraso de equipamento gera atraso de obra — e isso custa caro."
-          subtitle="Nossa frota fica pronta pra retirada imediata. Ligou, confirmou, equipamento na sua obra em até 2h*."
+          title={
+            <>
+              Atraso de equipamento gera atraso<br className="hidden md:block" /> de obra, e isso custa caro.
+            </>
+          }
+          subtitle={
+            <>
+              Nossa frota fica pronta pra retirada imediata.<br className="hidden md:block" /> Ligou, confirmou, equipamento na sua obra em até 2h*.
+            </>
+          }
           className="bg-[#0E33AD]"
         >
           <a
