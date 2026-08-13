@@ -43,7 +43,7 @@ function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: b
     >
       <div className={cn(
         "flex aspect-square items-center justify-center bg-[#F8FAFC] overflow-hidden",
-        compact ? "p-3 sm:p-6" : "p-6"
+        compact ? "p-2 sm:p-6" : "p-6"
       )}>
         <img
           src={item.image}
@@ -58,8 +58,8 @@ function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: b
         />
       </div>
       <div className={cn(
-        "flex flex-1 flex-col justify-between gap-4 sm:gap-6",
-        compact ? "p-3 sm:p-6" : "p-6"
+        "flex flex-1 flex-col justify-between gap-3 sm:gap-6",
+        compact ? "p-2 sm:p-6" : "p-6"
       )}>
         <h3 className={cn(
           "font-semibold text-slate-800 leading-tight",
@@ -115,7 +115,7 @@ function EquipmentBlock({
         </div>
       ) : (
         <div className={cn(
-          "grid gap-4 sm:gap-6",
+          "grid gap-2 sm:gap-6",
           compact ? "grid-cols-2 lg:grid-cols-3 px-4 sm:px-0" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 sm:px-0"
         )}>
           {items.map((item) => (
@@ -163,12 +163,12 @@ export function EquipmentSection() {
         <Banner
           title={
             <>
-              Atraso de equipamento gera atraso<br className="hidden md:block" /> de obra, e isso custa caro.
+              Atraso de equipamento gera atraso{" "}<br className="hidden md:block" /> de obra, e isso custa caro.
             </>
           }
           subtitle={
             <>
-              Nossa frota fica pronta pra retirada imediata.<br className="hidden md:block" /> Ligou, confirmou, equipamento na sua obra em até 2h*.
+              Nossa frota fica pronta pra retirada imediata.{" "}<br className="hidden md:block" /> Ligou, confirmou, equipamento na sua obra em até 2h*.
             </>
           }
           className="bg-[#0E33AD]"
