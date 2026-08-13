@@ -141,8 +141,8 @@ function Banner({
   return (
     <div className={cn("rounded-2xl bg-foreground px-6 py-10 text-background sm:px-10", className)}>
         <div className="mx-auto max-w-3xl space-y-4 text-center flex flex-col items-center">
-          <h3 className="text-2xl font-extrabold sm:text-3xl max-w-[40ch]">{title}</h3>
-          <p className="text-base opacity-80 sm:text-lg max-w-[65ch]">{subtitle}</p>
+          <h3 className="text-2xl font-extrabold sm:text-3xl">{title}</h3>
+          <p className="text-base opacity-80 sm:text-lg">{subtitle}</p>
           {children}
         </div>
     </div>
