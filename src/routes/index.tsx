@@ -216,15 +216,15 @@ function Index() {
         <div className="container-custom grid md:grid-cols-3 gap-12">
           <div className="space-y-4">
             <h4 className="font-bold text-xl flex items-center gap-2 text-[#FFD000]"><HardHat /> Gomes Locações</h4>
-            <p className="text-muted-foreground">O maquinário certo para a sua obra não parar.</p>
+            <p className="text-white/80">O maquinário certo para a sua obra não parar.</p>
           </div>
           <div className="space-y-4">
             <h4 className="font-bold text-lg text-[#FFD000]">Contato</h4>
-            <div className="flex items-center gap-2 text-muted-foreground">
+            <div className="flex items-center gap-2 text-white/80">
               <MapPin size={20} />
               Rua Dom Pedro II, 1540 - Jd. Mato Grosso, Rondonópolis - MT
             </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
+            <div className="flex items-center gap-2 text-white/80">
               <Phone size={20} />
               (66) 99910-1069
             </div>
@@ -235,7 +235,7 @@ function Index() {
             <a href="#" className="block hover:underline">Termos de Locação</a>
           </div>
         </div>
-        <div className="container-custom mt-12 pt-8 border-t border-white/10 text-center text-muted-foreground">
+        <div className="container-custom mt-12 pt-8 border-t border-white/10 text-center text-white/60">
           <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm md:text-base">
             <span>© 2026 Gomes Locações. Todos os direitos reservados.</span>
             <span className="hidden md:inline">|</span>
