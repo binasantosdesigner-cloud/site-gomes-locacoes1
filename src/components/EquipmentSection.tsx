@@ -73,12 +73,11 @@ function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: b
           rel="noopener noreferrer"
           className={cn(
             "whatsapp-button flex items-center justify-center gap-2 rounded-xl text-base font-bold shadow-sm transition-transform active:scale-95",
-            compact ? "min-h-[44px] sm:min-h-[52px] px-2 sm:px-4 text-xs sm:text-base" : "min-h-[52px] w-full px-4"
+            compact ? "min-h-[52px] px-4" : "min-h-[52px] w-full px-4"
           )}
         >
-          <MessageCircle size={compact ? 18 : 22} aria-hidden />
-          <span className={compact ? "hidden xs:inline" : ""}>Orçar este equipamento</span>
-          {compact && <span className="xs:hidden">Orçar</span>}
+          <MessageCircle size={22} aria-hidden />
+          <span>Orçar este equipamento</span>
         </a>
       </div>
     </motion.article>
@@ -142,8 +141,8 @@ function Banner({
   return (
     <div className={cn("rounded-2xl bg-foreground px-6 py-10 text-background sm:px-10", className)}>
         <div className="mx-auto max-w-3xl space-y-4 text-center flex flex-col items-center">
-          <h3 className="text-2xl font-extrabold sm:text-3xl max-w-[25ch]">{title}</h3>
-          <p className="text-base opacity-80 sm:text-lg max-w-[60ch]">{subtitle}</p>
+          <h3 className="text-2xl font-extrabold sm:text-3xl max-w-[40ch]">{title}</h3>
+          <p className="text-base opacity-80 sm:text-lg max-w-[65ch]">{subtitle}</p>
           {children}
         </div>
     </div>
@@ -204,8 +203,8 @@ export function EquipmentSection() {
 
         <section className="py-16 bg-[#0E33AD] rounded-3xl text-white px-6 sm:px-10">
         <div className="container-custom mx-auto max-w-3xl space-y-6 text-center flex flex-col items-center">
-          <h3 className="text-2xl font-extrabold sm:text-3xl max-w-[25ch]">Garantia de Produtividade na Sua Obra</h3>
-          <p className="text-base opacity-90 sm:text-lg max-w-[65ch]">Se o equipamento apresentar defeito, substituímos na hora. Assistência técnica ágil pra sua obra não parar por nossa causa.</p>
+          <h3 className="text-2xl font-extrabold sm:text-3xl max-w-[32ch]">Garantia de Produtividade na Sua Obra</h3>
+          <p className="text-base opacity-90 sm:text-lg max-w-[70ch]">Se o equipamento apresentar defeito, substituímos na hora. Assistência técnica ágil pra sua obra não parar por nossa causa.</p>
             <div className="flex justify-center text-[#FFD000]">
               <ShieldCheck size={48} aria-hidden />
             </div>

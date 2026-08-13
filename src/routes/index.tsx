@@ -73,7 +73,7 @@ function Index() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold leading-tight max-w-[22ch]"
+            className="text-4xl md:text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold leading-tight max-w-[32ch]"
           >
             Locação de Equipamentos para Construção Civil em Rondonópolis
           </motion.h1>
@@ -133,7 +133,7 @@ function Index() {
       <section className="py-20 bg-slate-50">
         <div className="container-custom max-w-4xl">
           <header className="space-y-4 text-center mb-12">
-            <h2 className="text-3xl font-extrabold sm:text-4xl text-slate-900 mx-auto max-w-[28ch]">
+            <h2 className="text-3xl font-extrabold sm:text-4xl text-slate-900 mx-auto max-w-[35ch]">
               Dúvidas Frequentes sobre Locação de Equipamentos em Rondonópolis
             </h2>
             <p className="text-lg text-slate-600 mx-auto max-w-[70ch]">
