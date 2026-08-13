@@ -30,7 +30,7 @@ function Index() {
           
           <div className="hidden md:flex gap-8 font-medium">
             {["Início", "Equipamentos", "Diferenciais", "Contato"].map((link) => (
-              <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-primary transition-colors">{link}</a>
+              <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-[#0E33AD] transition-colors">{link}</a>
             ))}
           </div>
 
@@ -215,11 +215,11 @@ function Index() {
       <footer className="bg-[#0A2680] text-white py-16">
         <div className="container-custom grid md:grid-cols-3 gap-12">
           <div className="space-y-4">
-            <h4 className="font-bold text-xl flex items-center gap-2"><HardHat /> Gomes Locações</h4>
+            <h4 className="font-bold text-xl flex items-center gap-2 text-[#FFD000]"><HardHat /> Gomes Locações</h4>
             <p className="text-muted-foreground">O maquinário certo para a sua obra não parar.</p>
           </div>
           <div className="space-y-4">
-            <h4 className="font-bold text-lg">Contato</h4>
+            <h4 className="font-bold text-lg text-[#FFD000]">Contato</h4>
             <div className="flex items-center gap-2 text-muted-foreground">
               <MapPin size={20} />
               Rua Dom Pedro II, 1540 - Jd. Mato Grosso, Rondonópolis - MT
@@ -230,7 +230,7 @@ function Index() {
             </div>
           </div>
           <div className="space-y-4">
-            <h4 className="font-bold text-lg">Links</h4>
+            <h4 className="font-bold text-lg text-[#FFD000]">Links</h4>
             <a href="#" className="block hover:underline">Política de Privacidade</a>
             <a href="#" className="block hover:underline">Termos de Locação</a>
           </div>
@@ -246,7 +246,7 @@ function Index() {
                 href="https://boxcriativa.com.br/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors underline underline-offset-4"
+                className="hover:text-[#FFD000] transition-colors underline underline-offset-4"
               >
                 Box Criativa
               </a>

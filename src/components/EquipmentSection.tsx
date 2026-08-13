@@ -133,23 +133,6 @@ export function EquipmentSection() {
 
         <EquipmentBlock title="Solo e Energia" items={BLOCK_2} />
 
-        <Banner
-          title="Locação Flexível: Alugue por Diária, Semana ou Mês."
-          subtitle="Aprovação de cadastro rápida e sem burocracia para Pessoa Física e Jurídica."
-        >
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {[
-              { Icon: CalendarDays, label: "Diária" },
-              { Icon: CalendarRange, label: "Semanal" },
-              { Icon: CalendarClock, label: "Mensal" },
-            ].map(({ Icon, label }) => (
-              <div key={label} className="flex items-center justify-center gap-2 rounded-xl bg-primary/15 px-4 py-3 font-bold text-primary">
-                <Icon size={22} aria-hidden />
-                {label}
-              </div>
-            ))}
-          </div>
-        </Banner>
 
         <EquipmentBlock title="Acabamento e Utilidades" items={BLOCK_3} />
 
