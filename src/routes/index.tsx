@@ -56,10 +56,39 @@ function Index() {
             ))}
           </div>
 
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X /> : <Menu />}
+          <button 
+            className="md:hidden p-2 -mr-2 outline-hidden" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </nav>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-background border-b overflow-hidden"
+            >
+              <div className="container-custom py-4 flex flex-col gap-4 font-medium">
+                {["Início", "Equipamentos", "Diferenciais", "Contato"].map((link) => (
+                  <a 
+                    key={link} 
+                    href={`#${link.toLowerCase()}`} 
+                    className="py-2 hover:text-[#0E33AD] transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Hero */}
@@ -288,7 +317,7 @@ function Index() {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
-            className="fixed bottom-6 left-4 right-4 z-[60] md:hidden"
+            className="fixed bottom-0 left-0 right-0 z-[60] md:hidden bg-background/80 backdrop-blur-sm p-4 border-t"
           >
             <a
               href="https://wa.me/5566999101069?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20equipamento%20para%20minha%20obra."
@@ -302,6 +331,9 @@ function Index() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Spacing for mobile sticky CTA */}
+      <div className="h-20 md:hidden" />
 
       {/* Floating WhatsApp Button (Hidden on Mobile when Sticky CTA is active) */}
       <motion.a
