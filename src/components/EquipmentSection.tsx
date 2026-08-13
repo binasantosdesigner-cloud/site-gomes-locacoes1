@@ -161,8 +161,16 @@ export function EquipmentSection() {
         <EquipmentBlock title="Concretagem e Altura" items={BLOCK_1} variant="carousel" />
 
         <Banner
-          title="Atraso de equipamento gera atraso de obra — e isso custa caro."
-          subtitle="Nossa frota fica pronta pra retirada imediata. Ligou, confirmou, equipamento na sua obra em até 2h*."
+          title={
+            <>
+              Atraso de equipamento gera atraso<br className="hidden md:block" /> de obra, e isso custa caro.
+            </>
+          }
+          subtitle={
+            <>
+              Nossa frota fica pronta pra retirada imediata.<br className="hidden md:block" /> Ligou, confirmou, equipamento na sua obra em até 2h*.
+            </>
+          }
           className="bg-[#0E33AD]"
         >
           <a
