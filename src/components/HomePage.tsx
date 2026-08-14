@@ -41,7 +41,13 @@ export function HomePage() {
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-sm border-b">
         <nav className="container-custom flex items-center justify-between h-20">
           <div className="flex items-center">
-            <img src="/imagens/logo-1-gomes-locacoes.webp" alt="Gomes Locações" className="h-12 w-auto" />
+            <button 
+              onClick={scrollToTop}
+              className="cursor-pointer outline-hidden flex items-center"
+              aria-label="Voltar ao topo"
+            >
+              <img src="/imagens/logo-1-gomes-locacoes.webp" alt="Gomes Locações" className="h-12 md:h-14 w-auto" />
+            </button>
           </div>
           
           <div className="hidden md:flex gap-8 font-medium">
