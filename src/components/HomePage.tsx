@@ -2,6 +2,7 @@ import { Clock, Wrench, Check, Phone, MapPin, Menu, X, MessageCircle, Headphones
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { EquipmentSection } from "@/components/EquipmentSection";
+import { LegalModal } from "@/components/LegalModal";
 import {
   Accordion,
   AccordionContent,
@@ -13,11 +14,14 @@ export function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showStickyCTA, setShowStickyCTA] = useState(false);
   const [hideCTAForSpecialist, setHideCTAForSpecialist] = useState(false);
+  const [legalModal, setLegalModal] = useState<"privacidade" | "termos" | null>(null);
 
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const deployDate = new Date().toLocaleDateString('pt-BR');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +38,57 @@ export function HomePage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const privacyPolicy = `POLÍTICA DE PRIVACIDADE
+
+Última atualização: ${deployDate}
+
+A Gomes Locações, com sede na Rua Dom Pedro II, 1540 - Jardim Mato Grosso, Rondonópolis - MT, CEP 78739-752, respeita a privacidade dos visitantes deste site e está comprometida com a proteção de dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 - LGPD).
+
+1. Quais dados coletamos
+Este site pode coletar: dados de navegação (páginas visitadas, tempo de permanência) através de ferramentas de análise e publicidade, como o Meta Pixel (Facebook/Instagram Ads); dados fornecidos voluntariamente quando você entra em contato via WhatsApp (nome, telefone, mensagem).
+
+2. Como usamos seus dados
+Os dados coletados são utilizados para: responder a solicitações de orçamento; melhorar a experiência de navegação no site; veicular anúncios direcionados em redes sociais (Meta Ads).
+
+3. Compartilhamento de dados
+Não vendemos ou compartilhamos seus dados pessoais com terceiros, exceto quando necessário para prestação do serviço solicitado (ex: emissão de nota fiscal) ou por exigência legal.
+
+4. Cookies e ferramentas de rastreamento
+Este site utiliza o Meta Pixel para mensuração de campanhas publicitárias. Você pode gerenciar suas preferências de cookies e anúncios diretamente nas configurações da sua conta Meta/Facebook.
+
+5. Seus direitos
+Você pode, a qualquer momento, solicitar acesso, correção ou exclusão dos seus dados pessoais entrando em contato pelo telefone (66) 99910-1069 ou pelo WhatsApp.
+
+6. Contato
+Para dúvidas sobre esta política, entre em contato: (66) 99910-1069.`;
+
+  const rentalTerms = `TERMOS DE LOCAÇÃO
+
+Última atualização: ${deployDate}
+
+Estes termos regem a locação de equipamentos oferecida pela Gomes Locações, localizada na Rua Dom Pedro II, 1540 - Jardim Mato Grosso, Rondonópolis - MT.
+
+1. Cadastro
+A locação está disponível para Pessoa Física (CPF) e Pessoa Jurídica (CNPJ), mediante apresentação de documento de identificação válido.
+
+2. Períodos de locação
+Os equipamentos podem ser alugados nas modalidades diária, semanal ou mensal, conforme disponibilidade de estoque.
+
+3. Entrega e retirada
+A entrega é realizada em prazo de até 2 horas, sujeito à disponibilidade de estoque e região de entrega, conforme informado no momento do orçamento. A retirada também pode ser feita diretamente na loja.
+
+4. Estado dos equipamentos
+Todos os equipamentos passam por checklist de revisão técnica antes de cada locação. Em caso de defeito de fabricação ou mau funcionamento durante o uso normal, a Gomes Locações se compromete a realizar substituição ou reparo.
+
+5. Responsabilidade do locatário
+O locatário é responsável pela guarda e uso adequado do equipamento durante o período de locação, respondendo por danos causados por uso indevido, negligência ou mau uso.
+
+6. Devolução
+O equipamento deve ser devolvido na data e condições combinadas no momento da locação. Atrasos podem gerar cobrança proporcional adicional, a ser informada no momento da contratação.
+
+7. Cancelamento
+Condições de cancelamento e eventuais taxas serão informadas diretamente no momento do orçamento/negociação via WhatsApp.`;
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -305,8 +360,18 @@ export function HomePage() {
           </div>
           <div className="space-y-4">
             <h4 className="font-bold text-lg text-[#0E33AD]">Links</h4>
-            <a href="#" className="block hover:text-[#0E33AD] transition-colors">Política de Privacidade</a>
-            <a href="#" className="block hover:text-[#0E33AD] transition-colors">Termos de Locação</a>
+            <button 
+              onClick={() => setLegalModal("privacidade")}
+              className="block hover:text-[#0E33AD] transition-colors cursor-pointer text-left w-full"
+            >
+              Política de Privacidade
+            </button>
+            <button 
+              onClick={() => setLegalModal("termos")}
+              className="block hover:text-[#0E33AD] transition-colors cursor-pointer text-left w-full"
+            >
+              Termos de Locação
+            </button>
           </div>
         </div>
         <div className="container-custom mt-12 pt-8 border-t border-[#1A1A1A]/10 text-center text-[#1A1A1A]/60">
@@ -327,6 +392,19 @@ export function HomePage() {
             </span>
           </div>
         </div>
+
+        <LegalModal 
+          isOpen={legalModal === "privacidade"}
+          onOpenChange={(open) => !open && setLegalModal(null)}
+          title="Política de Privacidade"
+          content={privacyPolicy}
+        />
+        <LegalModal 
+          isOpen={legalModal === "termos"}
+          onOpenChange={(open) => !open && setLegalModal(null)}
+          title="Termos de Locação"
+          content={rentalTerms}
+        />
       </footer>
       {/* Sticky Mobile CTA */}
       <AnimatePresence>
