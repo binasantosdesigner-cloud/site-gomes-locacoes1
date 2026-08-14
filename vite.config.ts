@@ -10,12 +10,7 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
-  nitro: {
-    preset: "static",
-    prerender: {
-      routes: ["/"],
-      crawlLinks: true,
-      failOnError: false,
-    },
-  },
+  // We use the Lovable build environment defaults (Cloudflare)
+  // as the custom preset static was not being applied correctly
+  // in this specialized config wrapper.
 });
