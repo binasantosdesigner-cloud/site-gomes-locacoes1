@@ -218,23 +218,23 @@ export function HomePage() {
       </section>
 
       {/* CTA Banner Section */}
-      <section id="contato-especialista" className="bg-[#FFAA00] border-t-4 border-[#0E33AD]">
+      <section id="contato-especialista" className="bg-[#0E33AD] border-t-4 border-[#FFD000]">
         <div className="container-custom py-12 px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex-shrink-0">
               <div className="w-24 h-24 md:w-28 md:h-28 bg-[#FFD000] rounded-full flex items-center justify-center shadow-xl relative text-[#1A1A1A]">
                 <Headphones size={48} />
-                <div className="absolute -bottom-1 -right-1 bg-[#25D366] w-8 h-8 rounded-full border-4 border-[#FFAA00] flex items-center justify-center">
+                <div className="absolute -bottom-1 -right-1 bg-[#25D366] w-8 h-8 rounded-full border-4 border-[#0E33AD] flex items-center justify-center">
                   <div className="w-2 h-2 bg-white rounded-full animate-ping" />
                 </div>
               </div>
             </div>
 
             <div className="flex-1 text-center md:text-left space-y-3">
-              <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] max-w-[25ch]">
+              <h3 className="text-2xl md:text-3xl font-bold text-white max-w-[25ch]">
                 Fale com nosso Especialista
               </h3>
-              <p className="text-[#1A1A1A]/80 text-lg max-w-[60ch] leading-relaxed">
+              <p className="text-white/80 text-lg max-w-[60ch] leading-relaxed">
                 Não sabe qual equipamento sua obra precisa? Fala com a gente agora — te ajudamos a escolher e já mandamos o orçamento.
               </p>
             </div>
@@ -246,7 +246,7 @@ export function HomePage() {
                 href="https://wa.me/5566999101069?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20para%20escolher%20o%20equipamento%20ideal%20para%20minha%20obra."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 bg-[#0E33AD] text-white px-8 py-5 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all w-full md:w-auto hover:scale-105"
+                className="flex items-center justify-center gap-3 bg-[#FFD000] text-[#1A1A1A] px-8 py-5 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all w-full md:w-auto hover:scale-105"
               >
                 <MessageCircle className="fill-current" />
                 Iniciar Conversa no WhatsApp
@@ -260,7 +260,7 @@ export function HomePage() {
       <footer className="bg-[#FFAA00] text-[#1A1A1A] py-16 mt-[-1px]">
         <div className="container-custom grid md:grid-cols-3 gap-12">
           <div className="space-y-6">
-            <img src="/imagens/logo 2 - GOMES LOCAÇÃO.webp" alt="Gomes Locações" className="h-12 w-auto" />
+            <img src="/imagens/logo-2-gomes-locacoes.webp" alt="Gomes Locações" className="h-12 w-auto" />
             <p className="text-[#1A1A1A]/80">O maquinário certo para a sua obra não parar.</p>
           </div>
           <div className="space-y-4">
