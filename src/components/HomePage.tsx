@@ -347,16 +347,21 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
           </div>
           <div className="space-y-4">
             <h4 className="font-bold text-lg text-[#0E33AD]">Contato</h4>
-            <a 
-              href="https://maps.app.goo.gl/n8YcKts7DsXp93V98" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center gap-2 text-[#1A1A1A]/80 hover:text-[#0E33AD] transition-colors group"
-              aria-label="Ver localização no Google Maps"
-            >
-              <MapPin size={20} className="text-[#0E33AD] group-hover:scale-110 transition-transform" />
-              <span className="hover:underline underline-offset-4">Rua Dom Pedro II, 1540 - Jd. Mato Grosso, Rondonópolis - MT</span>
-            </a>
+            <div className="flex items-start gap-2 text-[#1A1A1A]/80">
+              <MapPin size={20} className="text-[#0E33AD] shrink-0 mt-1" />
+              <div className="flex flex-col gap-2">
+                <span>Rua Dom Pedro II, 1540 - Jd. Mato Grosso, Rondonópolis - MT</span>
+                <a 
+                  href="https://maps.app.goo.gl/n8YcKts7DsXp93V98" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-1 text-sm font-bold text-[#0E33AD] hover:underline underline-offset-4 w-fit"
+                  aria-label="Ver como chegar no Google Maps"
+                >
+                  Como chegar →
+                </a>
+              </div>
+            </div>
             <div className="flex items-center gap-2 text-[#1A1A1A]/80">
               <Phone size={20} className="text-[#0E33AD]" />
               <span className="font-bold">(66) 99910-1069</span>
