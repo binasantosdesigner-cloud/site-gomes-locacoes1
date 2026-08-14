@@ -265,10 +265,16 @@ export function HomePage() {
           </div>
           <div className="space-y-4">
             <h4 className="font-bold text-lg text-[#0E33AD]">Contato</h4>
-            <div className="flex items-center gap-2 text-[#1A1A1A]/80">
-              <MapPin size={20} className="text-[#0E33AD]" />
-              Rua Dom Pedro II, 1540 - Jd. Mato Grosso, Rondonópolis - MT
-            </div>
+            <a 
+              href="https://maps.app.goo.gl/n8YcKts7DsXp93V98" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-2 text-[#1A1A1A]/80 hover:text-[#0E33AD] transition-colors group"
+              aria-label="Ver localização no Google Maps"
+            >
+              <MapPin size={20} className="text-[#0E33AD] group-hover:scale-110 transition-transform" />
+              <span className="hover:underline underline-offset-4">Rua Dom Pedro II, 1540 - Jd. Mato Grosso, Rondonópolis - MT</span>
+            </a>
             <div className="flex items-center gap-2 text-[#1A1A1A]/80">
               <Phone size={20} className="text-[#0E33AD]" />
               (66) 99910-1069
