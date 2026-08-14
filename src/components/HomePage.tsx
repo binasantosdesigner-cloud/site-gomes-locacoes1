@@ -359,7 +359,7 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
             </a>
             <div className="flex items-center gap-2 text-[#1A1A1A]/80">
               <Phone size={20} className="text-[#0E33AD]" />
-              (66) 99910-1069
+              <span className="font-bold">(66) 99910-1069</span>
             </div>
           </div>
           <div className="space-y-4">
