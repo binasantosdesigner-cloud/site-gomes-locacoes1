@@ -14,6 +14,11 @@ export function HomePage() {
   const [showStickyCTA, setShowStickyCTA] = useState(false);
   const [hideCTAForSpecialist, setHideCTAForSpecialist] = useState(false);
 
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
