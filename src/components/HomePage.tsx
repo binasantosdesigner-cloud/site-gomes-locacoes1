@@ -2,6 +2,7 @@ import { Clock, Wrench, Check, Phone, MapPin, Menu, X, MessageCircle, Headphones
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { EquipmentSection } from "@/components/EquipmentSection";
+import { LegalModal } from "@/components/LegalModal";
 import {
   Accordion,
   AccordionContent,
