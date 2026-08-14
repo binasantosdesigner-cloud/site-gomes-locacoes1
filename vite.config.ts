@@ -10,7 +10,4 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
-  // We use the Lovable build environment defaults (Cloudflare)
-  // as the custom preset static was not being applied correctly
-  // in this specialized config wrapper.
 });
