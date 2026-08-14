@@ -3,7 +3,7 @@ import { HardHat, Clock, Wrench, Check, Phone, MapPin, Menu, X, MessageCircle, H
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { EquipmentSection } from "@/components/EquipmentSection";
-import heroAsset from "@/assets/banner_site.jpg.asset.json";
+
 import {
   Accordion,
   AccordionContent,
@@ -95,7 +95,7 @@ function Index() {
       <section id="início" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src={heroAsset.url} 
+            src="/imagens/hero-banner.jpg" 
             className="w-full h-full object-cover"
             style={{ 
               objectPosition: "center" 
