@@ -13,9 +13,5 @@ export default defineConfig({
   // Ensure Nitro generates a static site for shared hosting compatibility
   nitro: {
     preset: "static",
-    prerender: {
-      routes: ["/"],
-      crawlLinks: true,
-    },
   },
 });
