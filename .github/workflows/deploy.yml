@@ -1,0 +1,24 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via rsync over SSH
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete --exclude='.github/' --exclude='README.md' --exclude='node_modules/'
+          path: ./
+          remote_path: /home/u471216321/domains/gomeslocacoes.com.br/public_html/
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_port: ${{ secrets.SSH_PORT }}
+          remote_user: ${{ secrets.SSH_USERNAME }}
+          remote_key: ${{ secrets.SSH_PASSWORD }}
