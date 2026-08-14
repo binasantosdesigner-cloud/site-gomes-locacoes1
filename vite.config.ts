@@ -10,8 +10,12 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
-  // Ensure Nitro generates a static site for shared hosting compatibility
   nitro: {
     preset: "static",
+    prerender: {
+      routes: ["/"],
+      crawlLinks: true,
+      failOnError: false,
+    },
   },
 });
