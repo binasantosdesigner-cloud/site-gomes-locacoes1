@@ -91,7 +91,7 @@ O equipamento deve ser devolvido na data e condições combinadas no momento da 
 Condições de cancelamento e eventuais taxas serão informadas diretamente no momento do orçamento/negociação via WhatsApp.`;
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-sm border-b">
         <nav className="container-custom flex items-center justify-between h-20">
@@ -150,6 +150,8 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
           )}
         </AnimatePresence>
       </header>
+
+      <main className="overflow-x-hidden">
 
       {/* Hero */}
       <section id="início" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
@@ -327,6 +329,8 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
           </div>
         </div>
       </section>
+
+      </main>
 
       {/* Footer */}
       <footer className="bg-[#FFAA00] text-[#1A1A1A] py-16 mt-[-1px]">
