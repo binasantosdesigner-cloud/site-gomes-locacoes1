@@ -271,7 +271,13 @@ export function HomePage() {
       <footer className="bg-[#FFAA00] text-[#1A1A1A] py-16 mt-[-1px]">
         <div className="container-custom grid md:grid-cols-3 gap-12">
           <div className="space-y-6">
-            <img src="/imagens/logo-2-gomes-locacoes.webp" alt="Gomes Locações" className="h-12 w-auto" />
+            <button 
+              onClick={scrollToTop}
+              className="cursor-pointer outline-hidden flex items-center"
+              aria-label="Voltar ao topo"
+            >
+              <img src="/imagens/logo-2-gomes-locacoes.webp" alt="Gomes Locações" className="h-12 w-auto" />
+            </button>
             <p className="text-[#1A1A1A]/80">O maquinário certo para a sua obra não parar.</p>
           </div>
           <div className="space-y-4">
