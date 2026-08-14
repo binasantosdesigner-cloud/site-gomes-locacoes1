@@ -109,10 +109,51 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Gomes Locações",
+    "image": "https://gomeslocacoes.com.br/imagens/preview-site.webp",
+    "url": "https://gomeslocacoes.com.br",
+    "telephone": "+55 66 99910-1069",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "R. Dom Pedro II, 1540",
+      "addressLocality": "Rondonópolis",
+      "addressRegion": "MT",
+      "postalCode": "78739-752",
+      "addressCountry": "BR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "11:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "12:30",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "07:00",
+        "closes": "11:00"
+      }
+    ]
+  };
+
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body>
         {children}
