@@ -18,12 +18,19 @@ jobs:
       - name: Build project
         run: bun run build
         env:
+          NODE_ENV: production
           NITRO_PRESET: static
+      - name: Preparar pasta de deploy
+        run: |
+          mkdir -p ./deploy_dist
+          cp -r .output/public/.vinxi/public/* ./deploy_dist/ 2>/dev/null || cp -r .output/public/* ./deploy_dist/
+          echo "=== Arquivos prontos para o Deploy ==="
+          ls -la ./deploy_dist
       - name: Deploy via rsync over SSH (key auth)
         uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avzr --delete
-          path: .output/public/
+          path: deploy_dist/
           remote_path: /home/u471216321/domains/gomeslocacoes.com.br/public_html/
           remote_host: ${{ secrets.SSH_HOST }}
           remote_port: ${{ secrets.SSH_PORT }}
