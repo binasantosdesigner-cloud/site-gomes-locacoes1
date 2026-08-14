@@ -51,9 +51,12 @@ export function HomePage() {
           </div>
           
           <div className="hidden md:flex gap-8 font-medium">
-            {["Início", "Equipamentos", "Diferenciais", "Contato"].map((link) => (
-              <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-[#0E33AD] transition-colors">{link}</a>
-            ))}
+            {["Início", "Equipamentos", "Diferenciais", "Contato"].map((link) => {
+              const href = link === "Contato" ? "#contato-especialista" : `#${link.toLowerCase()}`;
+              return (
+                <a key={link} href={href} className="hover:text-[#0E33AD] transition-colors">{link}</a>
+              );
+            })}
           </div>
 
           <button 
@@ -74,16 +77,19 @@ export function HomePage() {
               className="md:hidden bg-background border-b overflow-hidden"
             >
               <div className="container-custom py-4 flex flex-col gap-4 font-medium">
-                {["Início", "Equipamentos", "Diferenciais", "Contato"].map((link) => (
-                  <a 
-                    key={link} 
-                    href={`#${link.toLowerCase()}`} 
-                    className="py-2 hover:text-[#0E33AD] transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link}
-                  </a>
-                ))}
+                {["Início", "Equipamentos", "Diferenciais", "Contato"].map((link) => {
+                  const href = link === "Contato" ? "#contato-especialista" : `#${link.toLowerCase()}`;
+                  return (
+                    <a 
+                      key={link} 
+                      href={href} 
+                      className="py-2 hover:text-[#0E33AD] transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link}
+                    </a>
+                  );
+                })}
               </div>
             </motion.div>
           )}
