@@ -82,14 +82,18 @@ export function HomePage() {
       {/* Hero */}
       <section id="início" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
-          <img 
-            src="/imagens/hero-banner.jpg" 
-            className="w-full h-full object-cover"
-            style={{ 
-              objectPosition: "center" 
-            }}
-            alt="Trabalhador da construção operando serra circular"
-          />
+          <picture>
+            <source media="(max-width: 767px)" srcSet="/imagens/banner-hero-mobile-750x1000.webp" />
+            <source media="(max-width: 1023px)" srcSet="/imagens/banner-hero-tablet-1024x768.webp" />
+            <img 
+              src="/imagens/banner-hero-desktop-1920x1080.webp" 
+              className="w-full h-full object-cover"
+              style={{ 
+                objectPosition: "center" 
+              }}
+              alt="Trabalhador da construção operando serra circular"
+            />
+          </picture>
         </div>
         
         <div className="container-custom relative z-10 text-white space-y-6 flex flex-col items-start text-left md:ml-0">
