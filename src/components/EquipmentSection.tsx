@@ -22,12 +22,14 @@ const BLOCK_2: Equipment[] = [
   { name: "Compactador de Solo", image: "/imagens/Compactador de solo.jpg" },
   { name: "Placa Vibratória", image: "/imagens/Placa vibratória.jpg" },
   { name: "Gerador", image: "/imagens/Gerador.jpg" },
+  { name: "Guincho de Coluna", image: "/imagens/Guincho de coluna.jpg" },
 ];
 
 const BLOCK_3: Equipment[] = [
   { name: "Roçadeira", image: "/imagens/Roçadeira.jpg" },
   { name: "Lixadeira Telescópica", image: "/imagens/Lixadeira girafa para parede.jpg" },
-  { name: "Guincho de Coluna", image: "/imagens/Guincho de coluna.jpg" },
+  { name: "Furadeira", image: "/imagens/furadeira.jpeg" },
+  { name: "Serra Circular", image: "/imagens/Serra-circular.jpeg" },
 ];
 
 function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: boolean }) {
