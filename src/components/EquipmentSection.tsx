@@ -33,6 +33,15 @@ const BLOCK_3: Equipment[] = [
 ];
 
 function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: boolean }) {
+  const handleTrackClick = () => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'click_produto', {
+        'event_category': 'Equipamentos',
+        'event_label': item.name
+      });
+    }
+  };
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -73,6 +82,7 @@ function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: b
           href={buildLink(item.name)}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handleTrackClick}
           className={cn(
             "whatsapp-button flex items-center justify-center gap-2 rounded-xl text-base font-bold shadow-sm transition-transform active:scale-95",
             compact ? "min-h-[52px] px-2 text-xs xs:text-sm sm:text-base sm:px-4" : "min-h-[52px] w-full px-4"
@@ -179,6 +189,14 @@ export function EquipmentSection() {
             href={`${WHATSAPP}?text=${encodeURIComponent("Olá, gostaria de fazer um orçamento.")}`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'generate_lead', {
+                  'event_category': 'Contato',
+                  'event_label': 'WhatsApp_Banner'
+                });
+              }
+            }}
             className="whatsapp-button mt-2 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-8"
           >
             <MessageCircle size={20} aria-hidden />

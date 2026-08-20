@@ -320,6 +320,14 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
                 href="https://wa.me/5566999101069?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20para%20escolher%20o%20equipamento%20ideal%20para%20minha%20obra."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'generate_lead', {
+                      'event_category': 'Contato',
+                      'event_label': 'WhatsApp_Banner'
+                    });
+                  }
+                }}
                 className="flex items-center justify-center gap-3 bg-[#FFD000] text-[#1A1A1A] px-8 py-5 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all w-full md:w-auto hover:scale-105"
               >
                 <MessageCircle className="fill-current" />
@@ -428,6 +436,14 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
               href="https://wa.me/5566999101069?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20equipamento%20para%20minha%20obra."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                if (typeof window.gtag === 'function') {
+                  window.gtag('event', 'generate_lead', {
+                    'event_category': 'Contato',
+                    'event_label': 'WhatsApp_Mobile_Sticky'
+                  });
+                }
+              }}
               className="flex items-center justify-center gap-2 w-full bg-[#FFD000] text-[#1A1A1A] py-4 px-6 rounded-full font-bold shadow-2xl active:scale-95 transition-transform"
             >
               <MessageCircle className="w-6 h-6 fill-current" />
@@ -451,6 +467,14 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
         whileHover={{ scale: 1.1 }}
         className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-transform hidden md:flex"
         aria-label="Falar no WhatsApp"
+        onClick={() => {
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', {
+              'event_category': 'Contato',
+              'event_label': 'WhatsApp_Flutuante'
+            });
+          }
+        }}
       >
         <motion.div
           animate={{
