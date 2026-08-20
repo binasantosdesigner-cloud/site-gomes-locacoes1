@@ -201,6 +201,14 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
             href="https://wa.me/5566999101069" 
+            onClick={() => {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'generate_lead', {
+                  'event_category': 'Contato',
+                  'event_label': 'WhatsApp_Hero'
+                });
+              }
+            }}
             className="inline-block whatsapp-button px-8 py-4 rounded-xl text-lg shadow-lg hover:scale-105"
           >
             Fazer Orçamento Agora
