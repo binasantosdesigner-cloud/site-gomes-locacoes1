@@ -1,6 +1,7 @@
 declare global {
   interface Window {
-    gtag: (
+    dataLayer: any[];
+    gtag?: (
       type: string,
       action: string,
       params?: {

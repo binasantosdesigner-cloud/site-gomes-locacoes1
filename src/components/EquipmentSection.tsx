@@ -34,10 +34,10 @@ const BLOCK_3: Equipment[] = [
 
 function EquipmentCard({ item, compact = false }: { item: Equipment; compact?: boolean }) {
   const handleTrackClick = () => {
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'click_produto', {
-        'event_category': 'Equipamentos',
-        'event_label': item.name
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        event: 'click_produto',
+        produto_nome: item.name
       });
     }
   };
@@ -190,10 +190,10 @@ export function EquipmentSection() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => {
-              if (typeof window.gtag === 'function') {
-                window.gtag('event', 'generate_lead', {
-                  'event_category': 'Contato',
-                  'event_label': 'WhatsApp_Banner'
+              if (window.dataLayer) {
+                window.dataLayer.push({
+                  event: 'generate_lead',
+                  lead_origem: 'WhatsApp_Banner'
                 });
               }
             }}

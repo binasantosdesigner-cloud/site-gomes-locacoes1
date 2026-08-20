@@ -202,10 +202,10 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
             transition={{ delay: 0.4 }}
             href="https://wa.me/5566999101069" 
             onClick={() => {
-              if (typeof window.gtag === 'function') {
-                window.gtag('event', 'generate_lead', {
-                  'event_category': 'Contato',
-                  'event_label': 'WhatsApp_Hero'
+              if (window.dataLayer) {
+                window.dataLayer.push({
+                  event: 'generate_lead',
+                  lead_origem: 'WhatsApp_Hero'
                 });
               }
             }}
@@ -329,10 +329,10 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
-                  if (typeof window.gtag === 'function') {
-                    window.gtag('event', 'generate_lead', {
-                      'event_category': 'Contato',
-                      'event_label': 'WhatsApp_Banner'
+                  if (window.dataLayer) {
+                    window.dataLayer.push({
+                      event: 'generate_lead',
+                      lead_origem: 'WhatsApp_Banner'
                     });
                   }
                 }}
@@ -445,10 +445,10 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
-                if (typeof window.gtag === 'function') {
-                  window.gtag('event', 'generate_lead', {
-                    'event_category': 'Contato',
-                    'event_label': 'WhatsApp_Mobile_Sticky'
+                if (window.dataLayer) {
+                  window.dataLayer.push({
+                    event: 'generate_lead',
+                    lead_origem: 'WhatsApp_Mobile_Sticky'
                   });
                 }
               }}
@@ -476,10 +476,10 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
         className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-transform hidden md:flex"
         aria-label="Falar no WhatsApp"
         onClick={() => {
-          if (typeof window.gtag === 'function') {
-            window.gtag('event', 'generate_lead', {
-              'event_category': 'Contato',
-              'event_label': 'WhatsApp_Flutuante'
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: 'generate_lead',
+              lead_origem: 'WhatsApp_Flutuante'
             });
           }
         }}
