@@ -202,10 +202,10 @@ Condições de cancelamento e eventuais taxas serão informadas diretamente no m
             transition={{ delay: 0.4 }}
             href="https://wa.me/5566999101069" 
             onClick={() => {
-              if (typeof window.gtag === 'function') {
-                window.gtag('event', 'generate_lead', {
-                  'event_category': 'Contato',
-                  'event_label': 'WhatsApp_Hero'
+              if (window.dataLayer) {
+                window.dataLayer.push({
+                  event: 'generate_lead',
+                  lead_origem: 'WhatsApp_Hero'
                 });
               }
             }}
